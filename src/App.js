@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Nav from './components/Nav';
+
 import  NotFound  from "./pages/NotFound";
 import styled from 'styled-components'
 import Hotels from "./pages/Hotels";
