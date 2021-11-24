@@ -13,7 +13,7 @@ const Marker = (props) => {
     const {prix} = props 
     return (
       <>
-        <img src="https://img.icons8.com/material-two-tone/48/000000/place-marker.png"/>
+        <img src="https://img.icons8.com/material-two-tone/48/000000/place-marker.png" alt=" marquer des hotels"/>
         <InfoWindow>
             {prix}€
         </InfoWindow>
