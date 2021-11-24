@@ -45,7 +45,7 @@ const Hotels = () => {
         fetch( `https://trippy-konexio.herokuapp.com/api/hotels/city/${city}`)
             .then(reponse => reponse.json())
             .then(result => setHotels(result))
-    }, []);
+    }, [city]);
     // console.log(hotels);
     const numberStars = (numEtoile) => {
         let starsArray = [
