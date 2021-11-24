@@ -5,8 +5,7 @@ import styled from 'styled-components'
 import Hotels from "./pages/Hotels";
 
 const Container = styled.div` 
-margin-top: 40px;
-// display : flex;
+
 `;
 const App = () => {
 

@@ -11,7 +11,8 @@ const MapContainer = styled.div`
 const Map = (props) => {    
 //   console.log("props hotel",props);
   const {center} = props.hotels
-    
+//   const {stars} = props.hotels.results
+//     console.log(props.hotels.results);
     return (
         <>
             <MapContainer>

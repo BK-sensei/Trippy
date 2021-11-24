@@ -14,10 +14,7 @@ h1, p {
     padding-left : 20px;
 }
 img {
-    width:100%;
-    background-size: cover;
-    border-radius: 30px 30px 0px 0px;
-    height: 150px;
+    width:20px;
 }
 `;
 const Span = styled.span` 
@@ -32,6 +29,13 @@ const Container1 = styled.div`
 const Container2 = styled.div` 
     display:flex;
 `;
+const ContainerImage = styled.div`
+    display:flex;
+    height : 20px;
+    padding :  0px 20px 10px 0px;
+    justify-content: flex-end;
+    // align-item: flex-end;
+`;
 
 const Hotels = () => {
     const [ hotels , setHotels ] = useState(null)
@@ -43,7 +47,23 @@ const Hotels = () => {
             .then(result => setHotels(result))
 
     }, []);
-
+    
+    const numberStars = (numEtoile) => {
+        let starsArray = [
+            "https://img.icons8.com/color/48/000000/star--v1.png",
+            "https://img.icons8.com/color/48/000000/star--v1.png",
+            "https://img.icons8.com/color/48/000000/star--v1.png",
+            "https://img.icons8.com/color/48/000000/star--v1.png",
+            "https://img.icons8.com/color/48/000000/star--v1.png"
+        ]
+        starsArray.forEach((stars,index) => {
+            if(index < numEtoile){
+               starsArray[index]="https://img.icons8.com/fluency/48/000000/star.png"
+            }
+        })
+        return starsArray
+    }
+    
     // console.log(hotels);
     return (
       <>
@@ -61,7 +81,14 @@ const Hotels = () => {
                                     <h1>{hotel.name} </h1>
                                     <p> Adresse : {hotel.address}</p>
                                     <p> Le prix :<Span> {hotel.price}€</Span></p>
-                                    
+                                    {/* <p> {hotel.stars}</p> */}
+                                        <ContainerImage>
+                                            {numberStars(hotel.stars).map(stars =>
+                                                
+                                                <img src= {stars} alt="nombre d'avis"/>
+                                                
+                                            )}   
+                                        </ContainerImage>
                                 </Container>
                             )}   
                         </Container1>
