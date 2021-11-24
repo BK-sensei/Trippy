@@ -1,9 +1,9 @@
 import { useState, useEffect, } from "react";
 import { useParams } from 'react-router-dom'
 import Map from "../components/Map";
-
 // import { Link } from "react-router-dom";
 import styled from 'styled-components'
+
 const Container = styled.div` 
 border : 1px solid black;
 margin-top :10px;
@@ -20,20 +20,17 @@ img {
 }
 `;
 const Span = styled.span` 
-font-weight: bold;
+    font-weight: bold;
 `;
 const Container1 = styled.div` 
-margin : 0px 0px 0px 10px;
-height: 100vh;
-width : 500px;
-overflow:scroll;
-
+    margin : 0px 0px 0px 10px;
+    height: 100vh;
+    width : 500px;
+    overflow:scroll;
 `;
 const Container2 = styled.div` 
 display:flex;
 `;
-
-
 
 const Hotels = () => {
     const [ hotels , setHotels ] = useState(null)
@@ -46,7 +43,7 @@ const Hotels = () => {
 
     }, []);
 
-    console.log(hotels);
+    // console.log(hotels);
     return (
       <>
         { hotels === null ? 
@@ -56,17 +53,16 @@ const Hotels = () => {
                     <Container1>
                         <h1>la liste d'hotel à {city} </h1>
                         {hotels.results.map((hotel, index) => 
-                        <Container key={`${hotel.name}${index}`} >
-                            <img src={`https://trippy-konexio.herokuapp.com${hotel.pictures[29]}`} />
-                            <h1>{hotel.name} </h1>
-                            <p> Adresse : {hotel.address}</p>
-                            <p> Le prix :<Span> {hotel.price}€</Span></p>
-                            
-                        </Container>
-                        
+                            <Container key={`${hotel.name}${index}`} >
+                                <img src={`https://trippy-konexio.herokuapp.com${hotel.pictures[29]}`} />
+                                <h1>{hotel.name} </h1>
+                                <p> Adresse : {hotel.address}</p>
+                                <p> Le prix :<Span> {hotel.price}€</Span></p>
+                                
+                            </Container>
                         )}   
                     </Container1>
-                    <Map /> 
+                    <Map hotels = {hotels} /> 
                 </Container2>   
             )    
         }
