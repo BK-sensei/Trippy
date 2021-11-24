@@ -1,24 +1,21 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Nav from './components/Nav';
-import  NotFound  from "./pages/NotFound";
-import styled from 'styled-components'
-const Container = styled.div` 
-margin-top: 40px
-`;
-const App = () => {
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Nav from './components/Nav'
+import  NotFound  from "./pages/NotFound"
+import Hotel from './pages/Hotel'
+// import styled from 'styled-components'
 
+const App = () => {
   return (
-    <Container>
-      <Nav />
-        <BrowserRouter>
-          <Routes>
-            <Route exact path="/"  />
-            <Route  path="/Hotel"  />
-            <Route  path="/Favoris"  />
-            <Route  path="*" element={<NotFound/>} />
-          </Routes>
-        </BrowserRouter>
-    </Container>
+  <BrowserRouter>
+    <Nav />
+      <Routes>
+        <Route exact path="/"  />
+        <Route path="/hotel" element={<Hotel/>} />
+        <Route path="/favoris"  />
+        <Route  path="*" element={<NotFound/>} />
+    </Routes>
+  </BrowserRouter>
+
   )
 }
 

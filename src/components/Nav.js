@@ -5,7 +5,9 @@ display : flex;
 justify-content: end;
 padding-right : 90px;
 list-style-type: none;
-`;
+position: absolute;
+z-index: 10
+`
 
 const Li = styled.li` 
   
@@ -14,10 +16,11 @@ const Li = styled.li`
 `;
 const Nav = () => {
 
-    return (
-      <Container>
+  return (
+    <Container>
       <Li>Favoris</Li>
-      </Container>
-    )
+    </Container>
+  )
 }
+
 export default Nav;
