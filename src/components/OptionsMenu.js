@@ -1,28 +1,5 @@
-import React, { useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-
-const ContentButton = styled.div`
-    height: 30px;
-    display: flex;
-    justify-content: left;
-    border: 1px solid #333
-`
-
-const Onglets = styled.div`
-    width: 70px;
-    height: 30px;
-    backgound: blue;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    border: 1px solid #333
-`
-
-const HotelName = styled.div`
-    font-weight: 30px
-`
 
 const OptionContent = styled.div`
     height: 70vh;
@@ -34,30 +11,37 @@ const OptionContent = styled.div`
         padding: 40px;
     }
 `
+const [option, setOption] = useState([])
 
 
-// const [onglet, setOnglet] = useState(1)
+useEffect (() => {
+    console.log("#1 je rentre dans componnet did mount")
+    fetch(`https://trippy-konexio.herokuapp.com/api/hotels/619b99fc53a95d1d32bf1539`)
+        .then(response => response.json()) 
+        .then(data => {
+            // console.log("#2 asynchrone data => ", data)
+            setOption(data.result.commodities)
+        })
+        // console.log("#3 fin componnet did mount")
+}, [])
 
-// const optOne = () => {
-//     setOnglet(1)
-// }
 
-// const optTwo = () => {
-//     setOnglet(2)
-// }
+const OptionsMenu = (optionToggle) =>  {
 
-const OptionsMenu = () => {
     return (
-        <>
-            <HotelName>Nom de l'hôtel</HotelName>
-            <ContentButton>
-                <Onglets>option1</Onglets>
-            </ContentButton>
-            <OptionContent>
-                <p>contenu de l'option 1</p>
-            </OptionContent>
-        </>
+    optionToggle ? (
+        <OptionContent>
+            <ul>
+                {option.map(element =>(
+                    <li key={element.id}>
+                        <p>{element}</p>
+                    </li>
+                ))}
+            </ul>
+        </OptionContent>
+    ) : null
     )
 }
+
 
 export default OptionsMenu
