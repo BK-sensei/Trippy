@@ -7,8 +7,6 @@ const CityImg = (props) => {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0;
-        padding: 0;
     `
     const CityImg = styled.div`
         width: 320px;
@@ -37,8 +35,6 @@ const CityImg = (props) => {
         border-radius: 0px 0px 10px 10px;
         top: 313px;
     `
-
-
 
     console.log(props.image)
 
