@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState} from 'react';
 import styled from 'styled-components';
 
 import HeaderHome from '../components/Home/HeaderHome'
@@ -18,8 +18,7 @@ const Home = (props) => {
     //     }, [])
     // console.log("cities =>",cities);
 
-    const [imgCities, setImgCities] = useState(city)
-
+    const [imgCities] = useState(city)
     const Container = styled.div`
         display: grid;
         width: 100%;

@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Nav from './components/Nav';
+
 import  NotFound  from "./pages/NotFound";
 import styled from 'styled-components'
+import Hotels from "./pages/Hotels";
 import Home from '../src/pages/Home'
-import Hotel from "./pages/Hotel";
 
 
 const Container = styled.div` 
@@ -16,7 +16,7 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route exact path="/" element={<Home/>}  />
-            <Route  path="/Hotel" element={<Hotel/>} />
+            <Route  path="/hotels/:city" element={<Hotels/>} />
             <Route  path="/Favoris"  />
             <Route  path="*" element={<NotFound/>} />
           </Routes>
