@@ -3,12 +3,13 @@ import { useParams } from 'react-router-dom'
 import Map from "../components/Map";
 // import { Link } from "react-router-dom";
 import styled from 'styled-components'
+import Nav from "../components/Nav"
 
 const Container = styled.div` 
-border : 1px solid black;
-margin-top :10px;
-border-radius: 30px;
-width : 380px;
+    border : 1px solid black;
+    margin-top :10px;
+    border-radius: 30px;
+    width : 380px;
 h1, p {
     padding-left : 20px;
 }
@@ -25,11 +26,11 @@ const Span = styled.span`
 const Container1 = styled.div` 
     margin : 0px 0px 0px 10px;
     height: 100vh;
-    width : 500px;
+    width : 410px;
     overflow:scroll;
 `;
 const Container2 = styled.div` 
-display:flex;
+    display:flex;
 `;
 
 const Hotels = () => {
@@ -49,21 +50,24 @@ const Hotels = () => {
         { hotels === null ? 
             (<p>chargement de la liste ......</p>) 
             : (
-                <Container2>  
-                    <Container1>
-                        <h1>la liste d'hotel à {city} </h1>
-                        {hotels.results.map((hotel, index) => 
-                            <Container key={`${hotel.name}${index}`} >
-                                <img src={`https://trippy-konexio.herokuapp.com${hotel.pictures[29]}`} />
-                                <h1>{hotel.name} </h1>
-                                <p> Adresse : {hotel.address}</p>
-                                <p> Le prix :<Span> {hotel.price}€</Span></p>
-                                
-                            </Container>
-                        )}   
-                    </Container1>
-                    <Map hotels = {hotels} /> 
-                </Container2>   
+                <div>
+                    <Nav />
+                    <Container2>  
+                        <Container1>
+                            <h1>la liste d'hotel à {city} </h1>
+                            {hotels.results.map((hotel, index) => 
+                                <Container key={`${hotel.name}${index}`} >
+                                    {/* <img src={`https://trippy-konexio.herokuapp.com${hotel.pictures[29]}`} /> */}
+                                    <h1>{hotel.name} </h1>
+                                    <p> Adresse : {hotel.address}</p>
+                                    <p> Le prix :<Span> {hotel.price}€</Span></p>
+                                    
+                                </Container>
+                            )}   
+                        </Container1>
+                        <Map hotels = {hotels} /> 
+                    </Container2> 
+                </div>
             )    
         }
             

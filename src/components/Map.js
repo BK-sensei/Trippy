@@ -1,11 +1,12 @@
 import GoogleMapReact from 'google-map-react'
 import styled from 'styled-components'
 import Marker from "./Marker"
+
 // import Hotels from "../pages/Hotels"
 
 const MapContainer = styled.div`
   height: 100vh;
-  width: 50%;
+  width: 70%;
 `
 const Map = (props) => {    
 //   console.log("props hotel",props);
