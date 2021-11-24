@@ -6,7 +6,7 @@ import Nav from '../Nav';
 const Header = (props) => {
 
     const Header = styled.header`
-        background-image: url(${background});
+        background: url(${background});
         width: 100%;
         height: 100vh;
         z-index: 0;
@@ -27,6 +27,7 @@ const Header = (props) => {
         font-size: 60px;
         line-height: 90px;
         color: #FFFFFF;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     `
 
     const Button = styled.button`
@@ -47,12 +48,14 @@ const Header = (props) => {
         text-align: center;
         color: white;
         border: none;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     `
+
     return (
         <Header>
             <Nav />
             <ElementHeader>
-                <Title>READY FOR<br/>THE TRIPPIEST CITY ?</Title>
+                <Title>READY FOR<br/>THE <span style={{color: '#EB8D61'}}>TRIPPY</span>EST CITY ?</Title>
                 <Button>Choose a city</Button>
             </ElementHeader>
         </Header>
