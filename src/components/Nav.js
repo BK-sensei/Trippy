@@ -1,21 +1,5 @@
 import styled from 'styled-components'
 // le style  de la nav
-<<<<<<< HEAD
-const Container = styled.div` 
-display : flex;
-justify-content: end;
-padding-right : 90px;
-list-style-type: none;
-background: #EB8D61;
-height: 50px;
-margin-bottom : 20px
-`;
-
-const Li = styled.li` 
-  
-  padding : 14px;
-  
-=======
 const Container = styled.nav` 
   display : flex;
   justify-content: end;
@@ -32,7 +16,6 @@ const NavBar = styled.div`
   align-items: center;
   padding-left: 50px;
   padding-right: 50px;
->>>>>>> main
 `;
 
 const H2 = styled.h2`
@@ -56,16 +39,10 @@ const Nav = () => {
 
     return (
       <Container>
-<<<<<<< HEAD
-        <Li>Home page </Li>
-        <Li>Favoris</Li>
-        <Li>Home page </Li>
-=======
         <NavBar>
           <H2>Trippy</H2>
           <Favoris>Favoris</Favoris>
         </NavBar>
->>>>>>> main
       </Container>
     )
 }

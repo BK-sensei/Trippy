@@ -2,13 +2,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import  NotFound  from "./pages/NotFound";
 import styled from 'styled-components'
-<<<<<<< HEAD
 import Hotels from "./pages/Hotels";
-=======
 import Home from '../src/pages/Home'
-import Hotel from "./pages/Hotel";
 
->>>>>>> main
 
 const Container = styled.div` 
 
@@ -19,13 +15,8 @@ const App = () => {
     <Container>
         <BrowserRouter>
           <Routes>
-<<<<<<< HEAD
-            <Route exact path="/"  />
-            <Route  path="/hotels/:city" element={<Hotels/>} />
-=======
             <Route exact path="/" element={<Home/>}  />
-            <Route  path="/Hotel" element={<Hotel/>} />
->>>>>>> main
+            <Route  path="/hotels/:city" element={<Hotels/>} />
             <Route  path="/Favoris"  />
             <Route  path="*" element={<NotFound/>} />
           </Routes>
