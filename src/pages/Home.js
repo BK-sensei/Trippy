@@ -26,7 +26,7 @@ const Home = (props) => {
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: auto;
         row-gap: 50px;
-        column-gap: 0px;
+        // column-gap: 0px;
         background: #EEE6DD; 
         padding-bottom: 100px;
         padding-top: 50px;
