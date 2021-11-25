@@ -6,7 +6,6 @@ import Hotels from './pages/Hotels'
 import Hotel from './pages/Hotel'
 import NotFound from './pages/NotFound'
 import Footer from "./components/Footer";
-
 const Container = styled.div`
 
 `

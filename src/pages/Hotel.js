@@ -1,10 +1,9 @@
 import React , { useState, useEffect }from 'react'
-
+import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
 import Slider from '../components/HotelOption/Slider'
-import ButtonOption from '../components/HotelOption/ButtonOption'
-// import OptionsMenu from '../components/HotelOption/OptionsMenu'
+
 
 const HotelName = styled.div`
     padding: 10px 0 10px 0;
@@ -12,23 +11,6 @@ const HotelName = styled.div`
     text-align: center;
     font-size: 30px
 `
-
-const ContentButton = styled.div`
-    height: 30px;
-    display: flex;
-    justify-content: left;
-    padding-left: 60px;
-`
-
-// const Button = styled.div`
-//     width: 70px;
-//     height: 30px;
-//     backgoundcolor: blue;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-// `
-
 const OptionContent = styled.div`
     display: flex;
     justify-content: left;
@@ -37,59 +19,47 @@ const OptionContent = styled.div`
     font-size: 15px;
     border: 1px solid red;
 `
-
 const Hotel = (props) => {
-
-    const [hotel, setHotel] = useState([])
+    const { id} = useParams()
+    console.log(id);
+    const [hotel, setHotel] = useState(null)
     
-    // const { setOptionToggle, optionToggle } = ButtonOption()
-
-    // const toggle = () => {
-    //     setOptionToggle(!optionToggle)
-    // }
+   
     
     useEffect (() => {
-        fetch(`https://trippy-konexio.herokuapp.com/api/hotels/619b99fc53a95d1d32bf1539`)
+        fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${id}`)
             .then(response => response.json()) 
             .then(data => {
-                setHotel(data.result.commodities)
+                
+                setHotel(data.result)
             })
-    }, [])
+    }, [id])
     console.log("commodities :", hotel)
     return (
 
         <>
-        <Slider />
-            <HotelName>{hotel.name}</HotelName>
-            <OptionContent>
-                <>
-                {hotel.map(element => (
-                    <ul>
-                        <li>
-                            {element}
-                        </li>
-                    </ul>
-                ))}
-                </>
-            </OptionContent>
-
-        
-        
-        {/* {hotel.map(element => (
-            <p>{element.commodities}</p>
-        ))} */}
+            {hotel === null ? 
+            (<p>en cour de chargement ...</p>) 
+            :
+            (
+            <>    
+                 <Slider />
+                <HotelName>{hotel.name}</HotelName>
+                <OptionContent>
+                    <>
+                    {hotel.commodities.map(element => (
+                        <ul>
+                            <li>
+                                {element}
+                            </li>
+                        </ul>
+                    ))}
+                    </>
+                </OptionContent>
+            </>
+            )}
+       
         </>
     )
 }
     export default Hotel
-    
-    //     <>
-    //     {/* <Slider /> */}
-    //                 {hotel.map(element =>(
-    //                     <li key={element.id}>
-    //                         <p>{element.commodities}</p>
-    //                     </li>
-    //                 ))}
-          
-    //     </>
-    // )
