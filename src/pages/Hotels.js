@@ -29,6 +29,7 @@ const Container1 = styled.div`
 `;
 const Container2 = styled.div` 
     display:flex;
+    margin-bottom: 30px;
 `;
 const ContainerImage = styled.div`
     display:flex;
@@ -37,6 +38,11 @@ const ContainerImage = styled.div`
     justify-content: flex-end;
     // align-item: flex-end;
 `;
+const ContainerGlobal = styled.div`
+background: #EB8D61;
+
+`
+
 
 const Hotels = () => {
     const [ hotels , setHotels ] = useState(null)
@@ -77,7 +83,9 @@ const Hotels = () => {
             (<p>chargement de la liste ......</p>) 
             : (
                 <div>
-                    <Nav />
+                    <ContainerGlobal>
+                        <Nav />
+                    </ContainerGlobal>
                     <Container2>  
                         <Container1>
                             <h1>la liste d'hotel à {city} </h1>
