@@ -2,7 +2,7 @@ import { useState, useEffect, } from "react";
 import { useParams } from 'react-router-dom'
 import Map from "../components/Map";
 import Button from "../components/Button";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from 'styled-components'
 import Nav from "../components/Nav"
 
