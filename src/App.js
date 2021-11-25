@@ -2,8 +2,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import styled from "styled-components"
 import Home from '../src/pages/Home'
 import Footer from "./components/Footer";
-
-
+import Hotels from "./pages/Hotels";
+import Hotel from "./pages/Hotel";
+import NotFound from "./pages/NotFound"
 const Container = styled.div`
 
 `
