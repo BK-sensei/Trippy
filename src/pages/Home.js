@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import HeaderHome from '../components/Home/HeaderHome'
 import CityItems from '../components/Home/CityItems'
-
+import { Link } from "react-router-dom";
 import city from '../cities.json'
 
 const Home = (props) => {
@@ -79,7 +79,7 @@ const Home = (props) => {
         color: #555555;
     `
 
-    // console.log("Image des villes", imgCities);
+    console.log("Image des villes", imgCities);
     return (
         <>
             <HeaderHome />
@@ -97,13 +97,15 @@ const Home = (props) => {
 
                     <Container>
                         {imgCities.map(imgCity => (
-                        <CityItems
-                            image={imgCity.image}
-                            cityName={imgCity.name}
-                            preTitle={imgCity.preTitle}
-                            title={imgCity.title}
-                            text={imgCity.text}
-                        />
+                        <Link to={`/hotels/${imgCity.name}`}>
+                            <CityItems
+                                image={imgCity.image}
+                                cityName={imgCity.name}
+                                preTitle={imgCity.preTitle}
+                                title={imgCity.title}
+                                text={imgCity.text}
+                            />
+                        </Link>
                         ))}
                     </Container>
                     </>
