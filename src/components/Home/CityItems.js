@@ -40,14 +40,12 @@ const CityImg = (props) => {
     console.log(props.image)
 
     return (
-        <Link to='/hotels'>
-            <Items>
-                <CityImg style={{backgroundImage: `url(${props.image})`}} alt="City">
-                    <CityName>{props.cityName}</CityName>
-                </CityImg>
-            </Items>
-        </Link>
-    );
+        <Items>
+            <CityImg style={{backgroundImage: `url(${props.image})`}} alt="City">
+                <CityName>{props.cityName}</CityName>
+            </CityImg>
+        </Items>
+    )
 }
 
 export default CityImg;
