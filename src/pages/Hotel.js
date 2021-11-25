@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import Map2 from '../components/Map2'
 import Slider from '../components/HotelOption/Slider'
+import Icons from '../components/Icons'
 
 
 const HotelName = styled.div`
@@ -12,12 +13,11 @@ const HotelName = styled.div`
     font-size: 30px
 `
 const OptionContent = styled.div`
-    display: flex;
     justify-content: left;
     align-items: left;
     padding-left: 40px;
     font-size: 15px;
-    border: 1px solid red;
+    // border: 1px solid red;
 `
 const Hotel = (props) => {
     const { id} = useParams()
@@ -45,17 +45,22 @@ const Hotel = (props) => {
             <>    
                  <Slider />
                 <HotelName>{hotel.name}</HotelName>
-                <OptionContent>
+                <div>
                     <>
-                    {hotel.commodities.map(element => (
-                        <ul>
-                            <li>
-                                {element}
-                            </li>
-                        </ul>
+                    {hotel.commodities.filter (function (item, index) {
+                       return hotel.commodities.indexOf(item ) === index
+                    }).map(element => (
+                        <div>
+                            <div>
+                                <Icons comodity={element}></Icons>
+                            </div>
+                            <OptionContent>
+                                <p>{element}</p>
+                            </OptionContent>
+                        </div>
                     ))}
                     </>
-                </OptionContent>
+                </div>
                 <Map2 
                     lat1={hotel.location.lat} 
                     lon1={hotel.location.lon}
