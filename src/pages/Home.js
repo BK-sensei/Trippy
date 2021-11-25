@@ -97,7 +97,7 @@ const Home = (props) => {
 
                     <Container>
                         {imgCities.map(imgCity => (
-                        <Link to={`/hotels/${imgCity.name}`}>
+                        <Link to={`/hotels/:${imgCity.name}`}>
                             <CityItems
                                 image={imgCity.image}
                                 cityName={imgCity.name}

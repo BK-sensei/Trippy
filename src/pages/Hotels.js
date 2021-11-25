@@ -11,8 +11,10 @@ const Container = styled.div`
     margin-top :10px;
     border-radius: 30px;
     width : 380px;
-h1, p {
+h1, p , a {
     padding-left : 20px;
+    color: black;
+    text-decoration:none; 
 }
 img {
     width:20px;
@@ -50,6 +52,7 @@ const Hotels = () => {
     
     
     const { city} = useParams()
+    // console.log("city",city);
     useEffect(() => {
         fetch( `https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=${pagination}`)
             .then(reponse => reponse.json())
@@ -75,8 +78,8 @@ const Hotels = () => {
         console.log("sa clik dur",num);
         setPagination(num)
     }
-    console.log("pagination",pagination);
-    console.log("state hotels",hotels);
+    // console.log("pagination",pagination);
+    // console.log("state hotels",hotels.results);
     return (
       <>
         { hotels === null ? 
@@ -96,11 +99,13 @@ const Hotels = () => {
                             
                             {hotels.results.map((hotel, index) => 
                                 <Container key={`${hotel.name}${index}`} >
+                                    <Link to={`/hotel/${hotel._id}` }>
                                     {/* <img src={`https://trippy-konexio.herokuapp.com${hotel.pictures[29]}`} /> */}
                                     <h1>{hotel.name} </h1>
                                     <p> Adresse : {hotel.address}</p>
                                     <p> Le prix :<Span> {hotel.price}€</Span></p>
                                     {/* <p> {hotel.stars}</p> */}
+                                    
                                         <ContainerImage>
                                             {numberStars(hotel.stars).map(stars =>
                                                 
@@ -108,6 +113,7 @@ const Hotels = () => {
                                                 
                                             )}   
                                         </ContainerImage>
+                                    </Link>    
                                 </Container>
                             )}   
                         </Container1>
