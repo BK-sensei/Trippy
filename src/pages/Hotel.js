@@ -1,24 +1,18 @@
-import React , { useState, useEffect, Fragment }from 'react'
-
+import React , { useState, useEffect }from 'react'
+import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
+import Map2 from '../components/HotelOption/Map2'
+
 
 import Slider from '../components/HotelOption/Slider'
 
-const HotelFragment = styled.div`
-    font-family: 'Poppins', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-`
 
-
-const HotelName = styled.div`
+const HotelTitle = styled.div`
     padding: 10px 0 10px 0;
     align-items: center;
     text-align: center;
     font-size: 30px
 `
-
 const OptionContent = styled.div`
     width: 100vh;
     display: flex;
@@ -35,37 +29,54 @@ const OptionContent = styled.div`
         list-style-type: none;
     }
 `
-
 const Hotel = (props) => {
-
-    const [hotel, setHotel] = useState([])
+    const { id} = useParams()
+    console.log(id);
+    const [hotelState, setHotelState] = useState(null)
+    
+   
     
     useEffect (() => {
-        fetch(`https://trippy-konexio.herokuapp.com/api/hotels/619b99fc53a95d1d32bf1539`)
+        fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${id}`)
             .then(response => response.json()) 
             .then(data => {
-                setHotel(data.result.commodities)
+                
+                setHotelState(data.result)
             })
-    }, [])
-
-    // console.log("2e log de data :", data.result)
+    }, [id])
+    console.log("commodities :", hotelState.location)
     return (
-        <HotelFragment>
-            <Slider />
-                <HotelName>{hotel.name}</HotelName>
+
+        <>
+            {hotelState === null ? 
+            (<p>en cour de chargement ...</p>) 
+            :
+            (
+            <>    
+                 <Slider />
+                <HotelTitle>{hotelState.name}</HotelTitle>
                 <OptionContent>
-                <p>OPTIONS</p>
-                    {hotel.map(element => (
+                    <>
+                    {hotelState.commodities.map(element => (
                         <ul>
                             <li>
-                                <p>{element}</p>
+                                {element}
                             </li>
                         </ul>
                     ))}
-            </OptionContent>
-        </HotelFragment>
+                    </>
+                    <div>
+                        <Map2
+                           key={hotelState.name}
+                           lat={hotelState.location.lat}
+                           lng={hotelState.location.lon}
+                        />
+                        </div>
+                </OptionContent>
+            </>
+            )}
+       
+        </>
     )
 }
-
-export default Hotel
-    
+    export default Hotel

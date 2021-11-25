@@ -19,6 +19,7 @@ const Home = (props) => {
     // console.log("cities =>",cities);
 
     const [imgCities] = useState(city)
+
     const Container = styled.div`
         display: grid;
         width: 100%;
@@ -37,7 +38,6 @@ const Home = (props) => {
         background: #EEE6DD; 
         padding-top: 50px;
     `
-
     const MiniTitle = styled.h3`
         font-family: 'Poppins', sans-serif;
         font-style: normal;
@@ -52,8 +52,7 @@ const Home = (props) => {
         margin: 0;
         margin-left: 650px;
         margin-right: 650px;
-`
-
+    `
     const Title = styled.h2`
         font-family: 'Poppins', sans-serif;
         font-style: normal;
@@ -67,7 +66,6 @@ const Home = (props) => {
         color: #000000;
         margin: 0;
     `
-
     const Text = styled.p`
         font-family: 'Poppins', sans-serif;
         font-style: normal;
@@ -79,7 +77,8 @@ const Home = (props) => {
         color: #555555;
     `
 
-    console.log("Image des villes", imgCities);
+    // console.log("Image des villes", imgCities);
+
     return (
         <>
             <HeaderHome />

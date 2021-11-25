@@ -18,7 +18,6 @@ const CityItems = (props) => {
         background-size: cover;
         border-radius: 10px;
     `
-
     const CityName = styled.h4`
         width: 320px;
         height: 40px;

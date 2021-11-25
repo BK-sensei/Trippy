@@ -3,12 +3,10 @@ import styled from 'styled-components'
 const Container = styled.nav` 
   display : flex;
   justify-content: end;
-  padding : 15px;
   list-style-type: none;
   z-index: 10;
   background-color: transparent;
-`;
-
+`
 const NavBar = styled.div`
   width: 100%;
   display: flex;
@@ -16,8 +14,7 @@ const NavBar = styled.div`
   align-items: center;
   padding-left: 50px;
   padding-right: 50px;
-`;
-
+`
 const H2 = styled.h2`
   font-family: 'Poppins', sans-serif;
   font-style: normal;
