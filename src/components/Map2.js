@@ -6,12 +6,14 @@ import Marker from "./Marker"
 
 const MapContainer = styled.div`
   height: 100vh;
-  width: 70%;
+  width: 100%;
 `
 const Map = (props) => { 
-       
+    console.log("les props",props);
+       const {lat1, lon1, hotels} = props
+       console.log("lat",lat1,lon1);
     // console.log("props hotel",props);
-  const {center} = props.hotels
+    //   const {center} = props.hotels
     //const {stars} = props.hotels.results
     // console.log(props.hotels.results);
     return (
@@ -20,19 +22,19 @@ const Map = (props) => {
                 <GoogleMapReact
                 bootstrapURLKeys={{ key: "" }}
                 defaultCenter={{
-                    lat: center.lat,
-                    lng: center.lon
+                    lat: lat1,
+                    lng: lon1
                 }}
                 defaultZoom={14}
                 >
-                    {props.hotels.results.map((hotel,index) => 
-                        <Marker 
-                        key={hotel.name}
-                        lat={hotel.location.lat}
-                        lng={hotel.location.lon}
-                        prix={hotel.price}
-                        />
-                    ) } 
+                    
+                    <Marker 
+                    
+                    lat={lat1}
+                    lng={lon1}
+                    prix={hotels.price}
+                    />
+                     
                 
                 </GoogleMapReact>
             </MapContainer>

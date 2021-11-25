@@ -1,7 +1,7 @@
 import React , { useState, useEffect }from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
-
+import Map2 from '../components/Map2'
 import Slider from '../components/HotelOption/Slider'
 
 
@@ -56,6 +56,11 @@ const Hotel = (props) => {
                     ))}
                     </>
                 </OptionContent>
+                <Map2 
+                    lat1={hotel.location.lat} 
+                    lon1={hotel.location.lon}
+                    hotels={hotel}
+                />
             </>
             )}
        
