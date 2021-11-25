@@ -1,6 +1,7 @@
 import { useState, useEffect, } from "react";
 import { useParams } from 'react-router-dom'
 import Map from "../components/Map";
+import Button from "../components/Button";
 // import { Link } from "react-router-dom";
 import styled from 'styled-components'
 import Nav from "../components/Nav"
@@ -39,13 +40,15 @@ const ContainerImage = styled.div`
 
 const Hotels = () => {
     const [ hotels , setHotels ] = useState(null)
-    // const [ location , setLocation ] = useState(null)
-    const { city } = useParams()
+    const [pagination , setPagination]= useState(1)
+    
+    
+    const { city} = useParams()
     useEffect(() => {
-        fetch( `https://trippy-konexio.herokuapp.com/api/hotels/city/${city}`)
+        fetch( `https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=${pagination}`)
             .then(reponse => reponse.json())
             .then(result => setHotels(result))
-    }, [city]);
+    }, [city, pagination]);
     // console.log(hotels);
     const numberStars = (numEtoile) => {
         let starsArray = [
@@ -62,8 +65,12 @@ const Hotels = () => {
         })
         return starsArray
     }
-    
-    // console.log(hotels);
+    const paginationFunction = (num) =>{
+        console.log("sa clik dur",num);
+        setPagination(num)
+    }
+    console.log("pagination",pagination);
+    console.log("state hotels",hotels);
     return (
       <>
         { hotels === null ? 
@@ -74,6 +81,11 @@ const Hotels = () => {
                     <Container2>  
                         <Container1>
                             <h1>la liste d'hotel à {city} </h1>
+                            <Button num={1} click={paginationFunction} />
+                            <Button num={2} click={paginationFunction}/>
+                            <Button num={3} click={paginationFunction}/>
+                            <Button num={4} click={paginationFunction}/>
+                            
                             {hotels.results.map((hotel, index) => 
                                 <Container key={`${hotel.name}${index}`} >
                                     {/* <img src={`https://trippy-konexio.herokuapp.com${hotel.pictures[29]}`} /> */}

@@ -1,31 +1,31 @@
 [
     {
         "id": 1,
-        "name": "Paris",
+        "name": "paris",
         "image": "https://i.pinimg.com/474x/12/32/57/1232571dc2f08dda71b3694abf352d33.jpg"
     },
 
     {
         "id": 2,
-        "name": "Rome",
+        "name": "rome",
         "image": "https://i.pinimg.com/474x/94/d8/c0/94d8c0c40a8ca8873c26c1bf7f36d3d6.jpg"
     },
 
     {
         "id": 3,
-        "name": "Nice",
+        "name": "nice",
         "image": "https://i.pinimg.com/474x/19/42/40/194240712cc708e06f58d98f471354d7.jpg"
     },
 
     {
         "id": 4,
-        "name": "New York",
+        "name": "new-york",
         "image": "https://i.pinimg.com/474x/fa/21/8c/fa218c70fdc3f08bb7d25d2994f41ec5.jpg"
     },
 
     {
         "id": 5,
-        "name": "London",
+        "name": "london",
         "image": "https://i.pinimg.com/474x/15/8c/3f/158c3f7b35897c694794a8cd34d50ef1.jpg"
     }
 
