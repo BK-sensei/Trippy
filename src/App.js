@@ -1,8 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-
-import  NotFound  from "./pages/NotFound"
-import Hotels from "./pages/Hotels"
+import styled from "styled-components"
 import Home from '../src/pages/Home'
+import NotFound  from "./pages/NotFound"
+import Hotels from "./pages/Hotels"
+import Hotel from "./pages/Hotel"
+
+
+const Container = styled.div`
+
+`
 
 
 const App = () => {
@@ -12,6 +18,7 @@ const App = () => {
           <Routes>
             <Route exact path="/" element={<Home/>}  />
             <Route  path="/hotels/:city" element={<Hotels/>} />
+            <Route  path="/hotel/:id" element={<Hotel/>} />
             <Route  path="/Favoris"  />
             <Route  path="*" element={<NotFound/>} />
           </Routes>

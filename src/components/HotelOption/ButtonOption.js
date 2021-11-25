@@ -9,8 +9,9 @@ const ButtonOption = () => {
     }
 
     return (
-        optionToggle,
-        toggle
+        <>
+      <button onClick={toggle}>Toggle</button>
+      </>
     )
 }
 
