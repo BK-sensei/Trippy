@@ -8,11 +8,12 @@ const MapContainer = styled.div`
   height: 100vh;
   width: 70%;
 `
-const Map = (props) => {    
-//   console.log("props hotel",props);
+const Map = (props) => { 
+       
+    // console.log("props hotel",props);
   const {center} = props.hotels
-//   const {stars} = props.hotels.results
-//     console.log(props.hotels.results);
+    //const {stars} = props.hotels.results
+    // console.log(props.hotels.results);
     return (
         <>
             <MapContainer>
