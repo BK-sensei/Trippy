@@ -6,6 +6,8 @@ import Hotels from './pages/Hotels'
 import Hotel from './pages/Hotel'
 import NotFound from './pages/NotFound'
 import Footer from "./components/Footer";
+import Test from "./pages/Test"
+
 const Container = styled.div`
 
 `
@@ -19,6 +21,7 @@ const App = () => {
             <Route path="/hotels/:city" element={<Hotels/>} />
             <Route path="/hotel/:id" element={<Hotel/>} />
             <Route path="/Favoris"  />
+            <Route path="/test" element={<Test/>} />
             <Route path="*" element={<NotFound/>} />
           </Routes>
         </BrowserRouter>
