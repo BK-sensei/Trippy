@@ -6,8 +6,8 @@ const OptionContent = styled.div`
     height: 70vh;
     display: flex;
     justify-content: left;
+    text-decoration: none;
     align-items: left;
-    border: 1px solid red;
     div p {
         padding: 40px;
     }
