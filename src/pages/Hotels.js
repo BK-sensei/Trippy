@@ -41,8 +41,8 @@ const ContainerImage = styled.div`
 const Hotels = () => {
     const [ hotels , setHotels ] = useState(null)
     const [pagination , setPagination]= useState(1)
-    // const [ location , setLocation ] = useState(null)
-    const url = "?page="
+    
+    
     const { city} = useParams()
     useEffect(() => {
         fetch( `https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=${pagination}`)
