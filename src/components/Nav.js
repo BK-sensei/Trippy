@@ -3,7 +3,6 @@ import styled from 'styled-components'
 const Container = styled.nav` 
   display : flex;
   justify-content: end;
-  padding : 15px;
   list-style-type: none;
   z-index: 10;
   background-color: transparent;
