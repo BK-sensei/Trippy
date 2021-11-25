@@ -4,6 +4,7 @@ import  NotFound  from "./pages/NotFound";
 import styled from 'styled-components'
 import Hotels from "./pages/Hotels";
 import Home from '../src/pages/Home'
+import Footer from "./components/Footer";
 
 
 const Container = styled.div` 
@@ -21,6 +22,7 @@ const App = () => {
             <Route  path="*" element={<NotFound/>} />
           </Routes>
         </BrowserRouter>
+        <Footer />
     </Container>
   )
 }

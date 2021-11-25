@@ -1,7 +1,8 @@
 import { React } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom'
 
-const CityImg = (props) => {
+const CityItems = (props) => {
 
     const Items = styled.div`
         display: flex;
@@ -44,7 +45,7 @@ const CityImg = (props) => {
                 <CityName>{props.cityName}</CityName>
             </CityImg>
         </Items>
-    );
+    )
 }
 
-export default CityImg;
+export default CityItems;
