@@ -1,22 +1,23 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Nav from './components/Nav'
+
 import  NotFound  from "./pages/NotFound"
-import Hotel from './pages/Hotel'
-// import styled from 'styled-components'
+import Hotels from "./pages/Hotels"
+import Home from '../src/pages/Home'
+
 
 const App = () => {
   return (
-  <BrowserRouter>
-    <Nav />
-      <Routes>
-        <Route exact path="/"  />
-        <Route path="/hotel" element={<Hotel/>} />
-        <Route path="/favoris"  />
-        <Route  path="*" element={<NotFound/>} />
-    </Routes>
-  </BrowserRouter>
-
+    <Container>
+        <BrowserRouter>
+          <Routes>
+            <Route exact path="/" element={<Home/>}  />
+            <Route  path="/hotels/:city" element={<Hotels/>} />
+            <Route  path="/Favoris"  />
+            <Route  path="*" element={<NotFound/>} />
+          </Routes>
+        </BrowserRouter>
+    </Container>
   )
 }
 
-export default App;
+export default App

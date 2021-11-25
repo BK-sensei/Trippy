@@ -58,6 +58,7 @@ const Hotel = (props) => {
     
     
     return (
+        
         <div>
             <Slider/>           
             <HotelName><h3>Nom de l'hôtel</h3></HotelName>
