@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-// le style  de la nav
+
 const Container = styled.nav` 
   display : flex;
   justify-content: end;
@@ -46,4 +46,5 @@ const Nav = () => {
       </Container>
     )
 }
-export default Nav;
+
+export default Nav
