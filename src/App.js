@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Nav from './components/Nav';
 import  NotFound  from "./pages/NotFound";
 import styled from 'styled-components'
 import Home from '../src/pages/Home'
 import Hotel from "./pages/Hotel";
+import Footer from "./components/Footer";
 
 
 const Container = styled.div` 
@@ -21,6 +21,7 @@ const App = () => {
             <Route  path="*" element={<NotFound/>} />
           </Routes>
         </BrowserRouter>
+        <Footer />
     </Container>
   )
 }

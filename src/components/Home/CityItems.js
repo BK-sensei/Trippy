@@ -1,5 +1,6 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom'
 
 const CityImg = (props) => {
 
@@ -39,11 +40,13 @@ const CityImg = (props) => {
     console.log(props.image)
 
     return (
-        <Items>
-            <CityImg style={{backgroundImage: `url(${props.image})`}} alt="City">
-                <CityName>{props.cityName}</CityName>
-            </CityImg>
-        </Items>
+        <Link to='/hotels'>
+            <Items>
+                <CityImg style={{backgroundImage: `url(${props.image})`}} alt="City">
+                    <CityName>{props.cityName}</CityName>
+                </CityImg>
+            </Items>
+        </Link>
     );
 }
 
