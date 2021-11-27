@@ -8,56 +8,30 @@ import { CgGym } from 'react-icons/cg';
 import { SiGotomeeting } from 'react-icons/si';
 import { GrSpa, GrLanguage } from 'react-icons/gr';
 
-const Icons = () => {
-
+const Icons = (props) => {
 
     return (
         <>
-
-            {"commodity" === "wifi" && <BiWifi />}
-            {"commodity" === "bar" && <BiDrink />}
-            {"commodity" === "animals" && <FaDog />}
-            {"commodity" === "non smoking" && <FaSmokingBan />}
-            {"commodity" === "dry cleaning" &&  <MdDryCleaning />}
-            {"commodity" === "multilingual staff" &&  <GrLanguage />}
-            {"commodity" === "suites" &&  <IoIosBed />}
-            {"commodity" === "swimming pool" &&  <FaSwimmer />}
-            {"commodity" === "restaurant" &&  <MdRestaurant />}
-            {"commodity" === "gym" &&  <CgGym />}
-            {"commodity" === "room service" &&  <MdRoomService />}
-            {"commodity" === "spa" &&  <GrSpa />}
-            {"commodity" === "disabled access" &&  <BiHandicap />}
-            {"commodity" === "family" &&  <MdRestaurant />}
-            {"commodity" === "conciergerie" &&  <MdLuggage />}
-            {"commodity" === "meeting rooms" &&  <SiGotomeeting />}
-            {"commodity" === "shuttle" &&  <FaShuttleVan />}
-            {"commodity" === "air conditioning" &&  <MdOutlineAir />}
-            {"commodity" === "minibar" &&  <BiFridge />}
-            {"commodity" === "breakfast included" &&  <MdFreeBreakfast />}
-
-        {/* <ul>
-            <li> <BiWifi /> wifi</li>
-            <li> <BiDrink /> bar</li>
-            <li> <FaDog /> animals</li>
-            <li> <FaSmokingBan /> non smoking</li>
-            <li> <MdDryCleaning /> dry cleaning</li>
-            <li> <GrLanguage /> multilingual staff</li>
-            <li> <IoIosBed /> suites</li>
-            <li> <FaSwimmer /> swimming pool</li>
-            <li> <MdRestaurant /> restaurant</li>
-            <li> <CgGym /> gym</li>
-            <li> <MdRoomService /> room service</li>
-            <li> <GrSpa /> spa</li>
-            <li> <BiHandicap /> disabled access</li>
-            <li> <MdFamilyRestroom /> family</li>
-            <li> <MdLuggage /> conciergerie</li>
-            <li> <FaShuttleVan /> shuttle</li>
-            <li> <SiGotomeeting /> meeting rooms</li>
-            <li> <MdOutlineAir /> air conditioning</li>
-            <li> <BiFridge /> minibar</li>
-            <li> <MdFreeBreakfast /> breakfast included</li>
-        </ul> */}
-
+            {props.commodity === "wifi" && <BiWifi />}
+            {props.commodity === "bar" && <BiDrink />}
+            {props.commodity === "animals" && <FaDog />}
+            {props.commodity === "non smoking" && <FaSmokingBan />}
+            {props.commodity === "dry cleaning" &&  <MdDryCleaning />}
+            {props.commodity === "multilingual staff" &&  <GrLanguage />}
+            {props.commodity === "suites" &&  <IoIosBed />}
+            {props.commodity === "swimming pool" &&  <FaSwimmer />}
+            {props.commodity === "restaurant" &&  <MdRestaurant />}
+            {props.commodity === "gym" &&  <CgGym />}
+            {props.commodity === "room service" &&  <MdRoomService />}
+            {props.commodity === "spa" &&  <GrSpa />}
+            {props.commodity === "disabled access" &&  <BiHandicap />}
+            {props.commodity === "family" &&  <MdRestaurant />}
+            {props.commodity === "conciergerie" &&  <MdLuggage />}
+            {props.commodity === "meeting rooms" &&  <SiGotomeeting />}
+            {props.commodity === "shuttle" &&  <FaShuttleVan />}
+            {props.commodity === "air conditioning" &&  <MdOutlineAir />}
+            {props.commodity === "minibar" &&  <BiFridge />}
+            {props.commodity === "breakfast included" &&  <MdFreeBreakfast />}
         </>
     );
 }

@@ -19,6 +19,11 @@ const Footer = () => {
         gap: 20px;
         margin: 0px;
         padding: 15px 0px;
+
+        @media (max-width: 900px){
+            display: flex;
+            flex-direction: column;
+        }
     `
     const Title = styled.h2`
         font-style: normal;
@@ -26,6 +31,15 @@ const Footer = () => {
         font-size: 22px;
         line-height: 33px;
         color: #E5E5E5;
+
+        @media (max-width: 690px){
+            font-size: 16px
+        }
+
+        @media (max-width: 500px){
+            font-size: 12px;
+            margin: 0px;
+        }
     `
     const Form = styled.form`
         display:flex; 
@@ -40,7 +54,13 @@ const Footer = () => {
         font-weight: 200;
         font-size: 16px;
         border: none;
-        padding-left: 10px
+        padding-left: 10px;
+
+        @media (max-width: 500px){
+            width: 170px;
+            height: 20px;
+            font-size: 10px;
+        }
     `
     const Button = styled.button`
         width: 103px;
@@ -55,6 +75,12 @@ const Footer = () => {
         justify-content: center;
         color: #FFFFFF;
         border: none;
+
+        @media (max-width: 500px){
+            width: 70px;
+            height: 20px;
+            font-size: 10px;
+        }
     `
     const Delimitation = styled.hr`
         width: 90%;
@@ -64,11 +90,15 @@ const Footer = () => {
     `
     const Items = styled.div`
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
         color: #E5E5E5;
-        gap: 200px;
         padding: 30px 0;
+
+        @media (max-width: 780px){
+            display: flex;
+            flex-direction: column;
+        }
     `
     const AboutUs = styled.div`
         width: 360px;
@@ -78,8 +108,9 @@ const Footer = () => {
         width: 100%;
         background: #201F1F;
         display: flex;
+        justify-content: center;
         align-items: center;
-        padding: 20px 0px 20px 80px;
+        padding: 20px 0px;
         gap: 20px;
     `
 
@@ -102,16 +133,16 @@ const Footer = () => {
                     <p>Offers of the moment</p>
                     <p>Contact us</p>
                 </div>
-                <AboutUs>
-                    <h4>About us</h4>
-                    <p>Trippy came after a long talk with Mister Fucking Paquier.JSON, a great fucking teacher who gave us shitty API’s to work with. </p>
-                </AboutUs>
                 <div>
                     <h4>Our partners</h4>
                     <p>The Useless Website</p>
                     <p>Mondrian And Me</p>
                     <p>Heyyyyy Hooooo</p>
                 </div>
+                <AboutUs>
+                    <h4>About us</h4>
+                    <p>Trippy came after a long talk with Mister Fucking Paquier.JSON, a great fucking teacher who gave us shitty API’s to work with. </p>
+                </AboutUs>
             </Items>
         </Footer>
 
