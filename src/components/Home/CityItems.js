@@ -25,6 +25,7 @@ const CityItems = (props) => {
         font-style: normal;
         font-weight: bold;
         font-size: 20px;
+        text-transform: uppercase;
         line-height: 30px;
         display: flex;
         align-items: center;

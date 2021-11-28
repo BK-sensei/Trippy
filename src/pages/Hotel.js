@@ -4,34 +4,53 @@ import styled from 'styled-components'
 import Map2 from '../components/Map2'
 import Slider from '../components/HotelOption/Slider'
 import Icons from '../components/Icons'
-import { MapConsumer } from 'react-leaflet'
+// import { MapConsumer } from 'react-leaflet'
 
 const HotelPage = styled.div`
     background: #EEE6DD;
+    font-family: 'Poppins', sans-serif;
 `
 const HotelName = styled.h1`
+    font-family: 'Poppins', sans-serif;
     text-align: center;
-`
-const OptionContent = styled.div`
-    justify-content: left;
-    align-items: left;
-    padding-left: 40px;
-    font-size: 15px;
-`
-const HotelCommodities = styled.div`
-    display: flex;
-    // flex-direction: column;
-    align-items: center;
-    padding-left: 40px;
+    background-color: #EB8D61;
+    color: white;
+
+    @media (max-width: 800px){
+        font-size: 25px;
+    }
 `
 const HotelContainer = styled.div`
+
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 50px;
+    gap: 0px;
+
+    @media (max-width: 800px){
+        display: flex;
+        flex-direction: column;
+        padding: 0px;
+        gap: 0px;
+        padding-bottom: 20px
+    }
+`
+const HotelCommodities = styled.div`
+  
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    @media (max-width: 800px){
+        margin-left: 10px;
+        
 `
 const MapHotel = styled.div`
-    width: 50vw;
-    display: flex;
+    width: 60%;
+
+    @media (max-width: 800px){
+        width: 100%;
+    }
 `
 
 const Hotel = (props) => {
@@ -64,6 +83,7 @@ const Hotel = (props) => {
                 <HotelName>{hotel.name}</HotelName>
 
                 <HotelContainer>
+                    <div>
                     {hotel.commodities.filter (function (item, index) {
                        return hotel.commodities.indexOf(item ) === index
                     }).map(element => (
@@ -71,11 +91,12 @@ const Hotel = (props) => {
                             <div>
                                 <Icons commodity={element}></Icons>
                             </div>
-                            <OptionContent>
+                            <div>
                                 <p>{element}</p>
-                            </OptionContent>
+                            </div>
                         </HotelCommodities>
                     ))}
+                    </div>
                     <MapHotel>
                         <Map2 
                             lat1={hotel.location.lat} 

@@ -8,7 +8,6 @@ const Footer = () => {
 
     const Footer = styled.footer`
         width: 100%;
-        // height: 340px;
         background: #393939;
         font-family: 'Poppins', sans-serif;
     `
