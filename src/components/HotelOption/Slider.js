@@ -4,14 +4,15 @@ import 'react-slideshow-image/dist/styles.css'
 import { Fade } from 'react-slideshow-image'
 
 const MapSlider = styled.div`
-    background-image: 100%;
-    height: 100vh;
-    width: 100vw;
+    padding: 0 60px 0 60px;
+    background: hover;
+    height: 100%;
+    width: 100%;
     position: relative;
-    div img {
-        height: 100vh;
-        width: 100vw;
-    }
+    // div img {
+    //     height: 100%;
+    //     width: 100%;
+    // }
 `
 
 const Slider = () => {

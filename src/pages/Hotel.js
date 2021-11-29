@@ -1,40 +1,87 @@
 import React , { useState, useEffect }from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
-// import Map2 from '../components/HotelOption/Map2'
+import Map2 from '../components/Map2'
+import Slider2 from '../components/HotelOption/Slider2'
+import AddFavorite from '../components/HotelOption/AddFavorite'
+import Rooms from './Rooms'
 
-
-import Slider from '../components/HotelOption/Slider'
-
+const HotelById = styled.div`
+    *{
+        margin : 0;
+        padding : 0;
+        box-sizing : border-box;
+    }
+    width: 100%;
+    font-style: normal;
+    font-weight: bold;
+    background: #EEE6DD;
+`
 
 const HotelTitle = styled.div`
-    padding: 10px 0 10px 0;
-    align-items: center;
-    text-align: center;
-    font-size: 30px
-`
-const OptionContent = styled.div`
-    width: 100vh;
+    width: 100%;
     display: flex;
-    justify-content: left;
-    flex-direction: column;
-    align-items: left;
-    padding-left: 40px;
-    list-style: none;
-    font-size: 15px;
-    p{
-        padding-left: 40px; 
+    font-size: 30px;
+    background: transparent;
+    background: rgba(0,0,0,.1);
+    border-bottom:  1px solid #EEE6DD;
+    h2 {
+        text-align: center;
     }
-    ul{
-        list-style-type: none;
+    button {
+        margin-left: 100px;
+        border-radius: 30px
     }
 `
+
+const OptionContent = styled.div`
+    // display: flex;
+    // justify-content: space-between;
+    // div {
+    //     display: flex;
+    //     justify-content: right;
+    //     align-self: center;
+    // }
+`
+
+const List = styled.div`
+    // height: 100%;
+    // width: 20%;
+    // display: flex;
+    // justify-content: left;
+    // flex-direction: column;
+    // padding: 0 80px 0 0;
+    // align-items: left;
+    // list-style: none;
+    // font-size: 13px;
+    // background: transparent;
+    // background: rgba(0,0,0,.2);
+    // h3{
+    //     padding: 12px 18px 12px 18px;
+    //     font-size: 25px;
+    //     border: 1px solid #EEE6DD;
+    //     border-radius: 20px;
+    //     color: #EEE6DD;
+    //     background: rgba(0,0,0,.1)
+    // }
+    // ul{
+    //     list-style-type: none;
+    //     padding-left: 80px;
+    // }
+`
+
+const MapHotelOption = styled.div`
+    // width: 50vw;
+    // display: flex;
+
+`
+
 const Hotel = (props) => {
-    const { id} = useParams()
+
+    const { id } = useParams()
     console.log(id);
-    const [hotelState, setHotelState] = useState(null)
-    
-   
+    const [hotel, setHotelState] = useState(null)
+    // const [isFavorite, setIsFavorite] = useState(false) 
     
     useEffect (() => {
         fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${id}`)
@@ -44,39 +91,48 @@ const Hotel = (props) => {
                 setHotelState(data.result)
             })
     }, [id])
-    console.log("commodities :", hotelState)
+    // console.log("commodities :", hotel)
     return (
 
-        <>
-            {hotelState === null ? 
+        <HotelById>
+            {hotel === null ? 
             (<p>en cour de chargement ...</p>) 
             :
             (
             <>    
-                 <Slider />
-                <HotelTitle>{hotelState.name}</HotelTitle>
+                 <Slider2 />
+                <HotelTitle>
+                    <h2>{hotel.name}</h2>
+                    <button onClick={() => AddFavorite} >
+                        add to favorites
+                    </button>
+                </HotelTitle>
                 <OptionContent>
-                    <>
-                    {hotelState.commodities.map(element => (
-                        <ul>
-                            <li>
-                                {element}
-                            </li>
-                        </ul>
-                    ))}
-                    </>
-                </OptionContent>
-                    <div>
-                        <Map2
-                           key={hotelState.name}
-                           lat={hotelState.location.lat}
-                           lng={hotelState.location.lon}
+                    <List>
+                        <div><h3>Options :</h3></div>
+                        <>
+                        {hotel.commodities.map(element => (
+                            <ul>
+                                <li>
+                                    {element}
+                                </li>
+                            </ul>
+                        ))}
+                        </>
+                    </List>
+                    <MapHotelOption>
+                        <Map2 
+                            lat1={hotel.location.lat} 
+                            lon1={hotel.location.lon}
+                            hotels={hotel}
                         />
-                    </div>
+                    </MapHotelOption>
+                </OptionContent>
             </>
             )}
        
-        </>
+        </HotelById>
     )
 }
-    export default Hotel
+
+export default Hotel

@@ -11,6 +11,8 @@ const Container = styled.div`
     margin-top :10px;
     border-radius: 30px;
     width : 380px;
+    background: transparent;
+background: rgba(0,0,0,.1);
 h1, p , a {
     padding-left : 20px;
     color: black;
@@ -32,6 +34,7 @@ const Container1 = styled.div`
 const Container2 = styled.div` 
     display:flex;
     margin-bottom: 30px;
+    background: #EEE6DD;
 `;
 const ContainerImage = styled.div`
     display:flex;
@@ -107,10 +110,8 @@ const Hotels = () => {
                                     {/* <p> {hotel.stars}</p> */}
                                     
                                         <ContainerImage>
-                                            {numberStars(hotel.stars).map(stars =>
-                                                
-                                                <img src= {stars} alt="nombre d'avis"/>
-                                                
+                                            {numberStars(hotel.stars).map(stars =>                                               
+                                                <img src= {stars} alt="nombre d'avis"/>               
                                             )}   
                                         </ContainerImage>
                                     </Link>    
