@@ -118,7 +118,7 @@ const Hotel = (props) => {
                     <ButtonFavoris 
                       hotelId={hotel._id}
                       clickFavoris={favoris} 
-                      name="favoris"  />
+                      name="Add to favorite"  />
                 </HotelName>
                
 

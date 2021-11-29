@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { BiWifi, BiDrink, BiHandicap, BiFridge } from 'react-icons/bi';
-import { FaDog, FaSmokingBan, FaSwimmer, FaShuttleVan } from 'react-icons/fa';
+import { FaDog, FaSmokingBan, FaSwimmer, FaShuttleVan, FaSmoking, FaParking } from 'react-icons/fa';
 import { MdDryCleaning, MdRoomService, MdLuggage, MdOutlineAir, MdFreeBreakfast, MdRestaurant, MdFamilyRestroom } from 'react-icons/md';
 import { IoIosBed } from 'react-icons/io';
 import { CgGym } from 'react-icons/cg';
@@ -38,6 +38,8 @@ const Icons = (props) => {
             {props.commodity === "air conditioning" &&  <MdOutlineAir />}
             {props.commodity === "minibar" &&  <BiFridge />}
             {props.commodity === "breakfast included" &&  <MdFreeBreakfast />}
+            {props.commodity === "smoking" &&  <FaSmoking />}
+            {props.commodity === "parking" &&  <FaParking />}
         </IconCommodity>
     );
 }
