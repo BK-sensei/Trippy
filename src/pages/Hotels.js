@@ -6,33 +6,49 @@ import { Link } from "react-router-dom";
 import styled from 'styled-components'
 import Nav from "../components/Nav"
 
+const NavHeader = styled.div`
+    background: #EB8D61;
+`
 const ListHotels = styled.div`
     display: flex;
     flex-direction: column;
 `
-
-const Container2 = styled.div` 
-display:flex;
-padding-bottom: 30px;
-gap: 20px;
-background: #EEE6DD;
-font-family: 'Poppins', sans-serif;
-
-@media (max-width: 400px){
+const HotelsHeader = styled.div`
     display: flex;
-    align-items : center;
     flex-direction: column;
-    gap: 0px;
-}
+    align-items: center;
 
-.map{
-    width : 60%;
-    border : 4px solid black;
-    :nth-child(1){
-        width : 100%;
+    h1{
+        border-top: thick double;
+        border-bottom: thick double;
+        padding: 5px;
     }
-}
-`;
+`
+const Container2 = styled.div` 
+    display:flex;
+    padding-bottom: 30px;
+    gap: 20px;
+    background: #EEE6DD;
+    font-family: 'Poppins', sans-serif;
+
+    @media (max-width: 850px){
+        width: 100%;
+        display: flex;
+        align-items : center;
+        flex-direction: column;
+        gap: 0px;
+    }
+`
+const Container1 = styled.div` 
+    margin : 0px 0px 0px 10px;
+    height: 100vh;
+    // width : 410px;
+    overflow:scroll;
+
+    @media (max-width: 400px){
+        margin : 0px 10px 0px 10px;
+    }
+`
 const Container = styled.div` 
     // width : 380px;
     border : 1px solid black;
@@ -54,10 +70,10 @@ const Container = styled.div`
     img {
         width: 20px;
     }
-`;
+`
 const Span = styled.span` 
     font-weight: bold;
-`;
+`
 const Price = styled.div`
     width: 27%;
     display: flex;
@@ -68,17 +84,6 @@ const Price = styled.div`
     margin-left : 20px;
     border-radius: 5px;
     padding: 5px 0px;
-`
-const HotelsHeader = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    h1{
-        border-top: thick double;
-        border-bottom: thick double;
-        padding: 5px;
-    }
 `
 const Pagination = styled.div`
     display: flex;
@@ -93,28 +98,13 @@ const Pagination = styled.div`
         margin-bottom : 10px;
     }
 `
-const Container1 = styled.div` 
-    margin : 0px 0px 0px 10px;
-    height: 100vh;
-    // width : 410px;
-    overflow:scroll;
-
-    @media (max-width: 400px){
-        margin : 0px 10px 0px 10px;
-    }
-`;
-
 const ContainerStars = styled.div`
     display:flex;
     height : 20px;
     padding :  0px 20px 10px 0px;
     justify-content: flex-end;
     // align-item: flex-end;
-`;
-const NavHeader = styled.div`
-    background: #EB8D61;
 `
-
 
 const Hotels = () => {
     const [ hotels , setHotels ] = useState(null)

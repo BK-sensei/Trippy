@@ -5,10 +5,14 @@ import Marker from "../HotelCity/Marker"
 // import Hotels from "../pages/Hotels"
 
 const MapContainer = styled.div`
-//   height: 100vh;
+    height: 100vh;
     width : 100%;
+
+    @media (max-width: 800px){
+        height: 50vh;
+    }
 `
-const Map = (props) => { 
+const Map2 = (props) => { 
     console.log("les props",props);
        const {lat1, lon1, hotels} = props
        console.log("lat",lat1,lon1);
@@ -40,4 +44,4 @@ const Map = (props) => {
     )
 }
   
-  export default Map;
+  export default Map2;

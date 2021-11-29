@@ -1,20 +1,26 @@
 import React , { useState, useEffect }from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
-import Map2 from '../components/HotelOption/MapHotel'
+import Map2 from '../components/HotelOption/MapHotelDescription'
 import Slider from '../components/HotelOption/Slider'
 import Icons from '../components/HotelOption/Icons'
-// import { MapConsumer } from 'react-leaflet'
+import Nav from '../components/Nav'
 
 const HotelPage = styled.div`
     background: #EEE6DD;
     font-family: 'Poppins', sans-serif;
 `
-const HotelName = styled.h1`
+const NavHeader = styled.div`
+    background: #EB8D61;
+`
+const HotelName = styled.div`
     font-family: 'Poppins', sans-serif;
     text-align: center;
-    background-color: #EB8D61;
+    background-color: #201F1F;
     color: white;
+    border-top: thick double white;
+    border-bottom: thick double white;
+    padding: 5px;
 
     @media (max-width: 800px){
         font-size: 25px;
@@ -77,28 +83,37 @@ const Hotel = (props) => {
             (<p>Loading...</p>) 
             :
             (
-            <>    
+            <>   
+                <NavHeader>
+                    <Nav />
+                </NavHeader> 
+
                 <Slider />
                 
-                <HotelName>{hotel.name}</HotelName>
+                <HotelName>
+                    <h1>{hotel.name}</h1>
+                    <p>{hotel.address}</p>
+                </HotelName>
+               
 
                 <HotelContainer>
                     <div>
-                    {hotel.commodities.filter (function (item, index) {
-                       return hotel.commodities.indexOf(item ) === index
-                    }).map(element => (
-                        <HotelCommodities>
-                            <div>
-                                <Icons commodity={element}></Icons>
-                            </div>
-                            <div>
-                                <p>{element}</p>
-                            </div>
-                        </HotelCommodities>
-                    ))}
+                        <h2>Commodities</h2>
+                        {hotel.commodities.filter (function (item, index) {
+                        return hotel.commodities.indexOf(item ) === index
+                        }).map(element => (
+                            <HotelCommodities>
+                                <div>
+                                    <Icons commodity={element}></Icons>
+                                </div>
+                                <div>
+                                    <p>{element}</p>
+                                </div>
+                            </HotelCommodities>
+                        ))}
                     </div>
                     <MapHotel>
-                        <Map2 
+                        <Map2
                             lat1={hotel.location.lat} 
                             lon1={hotel.location.lon}
                             hotels={hotel}
