@@ -6,16 +6,6 @@ import {BsFillTrashFill} from 'react-icons/bs'
 const FavoritePage = styled.div`
     background: #EEE6DD;
 `
-const ContainerFav = styled.div`
-    width : 100%;
-    display: flex;
-    @media(max-width : 900px){
-        flex-wrap : wrap;
-    } 
-`
-const ContainerNav = styled.div`
-    background : #EB8D61;
-`
 const FavTitle = styled.h1`
     text-align: center;
     font-family: 'Poppins', sans-serif;
@@ -28,13 +18,15 @@ const FavTitle = styled.h1`
         font-size: 30px;
     }
 `
-const FavoriteList = styled.div`
+const ContainerFav = styled.div`
+    width : 100%;
     display: flex;
-    font-family: 'Poppins', sans-serif;
-
-    @media(max-width : 850px){
-        flex-direction : column;
-    }
+    @media(max-width : 900px){
+        flex-wrap : wrap;
+    } 
+`
+const ContainerNav = styled.div`
+    background : #EB8D61;
 `
 const Container = styled.div`
     padding: 20px;
@@ -43,11 +35,25 @@ const Container = styled.div`
         flex-direction : column;
     }
 `
+const FavoriteList = styled.div`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    font-family: 'Poppins', sans-serif;
+
+    @media(max-width : 1200px){
+        grid-template-columns: repeat(2, 1fr)
+    }
+    @media(max-width : 850px){
+        display: flex;
+        flex-direction: column;
+    }
+`
 const ContainerCardFav = styled.div`
     border : 1px solid black;
     border-radius : 10px;
     width : 100%;
-    margin : 20px 10px; 
+    margin : 10px 10px; 
     background-color: #201F1F;
     color: #E5E5E5;
     padding: 10px;
@@ -57,7 +63,6 @@ const ContainerCardFav = styled.div`
     }  
 
     @media (max-width: 400px){
-        margin : 10px 10px;
         h2{
             font-size: 20px;
         }
