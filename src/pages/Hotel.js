@@ -1,9 +1,9 @@
 import React , { useState, useEffect }from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
-import Map2 from '../components/Map2'
+import Map2 from '../components/HotelOption/MapHotel'
 import Slider from '../components/HotelOption/Slider'
-import Icons from '../components/Icons'
+import Icons from '../components/HotelOption/Icons'
 // import { MapConsumer } from 'react-leaflet'
 
 const HotelPage = styled.div`
