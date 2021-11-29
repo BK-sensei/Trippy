@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+import {Link} from 'react-router-dom'
 const Container = styled.nav` 
   display : flex;
   justify-content: end;
@@ -30,6 +30,11 @@ const Favoris = styled.p`
   font-style: normal;
   font-size: 16px;
   color: #FFFBFB;
+a{
+    text-decoration:none;
+    color: white;
+}
+  
 `
 
 const Nav = () => {
@@ -38,7 +43,7 @@ const Nav = () => {
       <Container>
         <NavBar>
           <H2>Trippy</H2>
-          <Favoris>Favoris</Favoris>
+          <Favoris><Link to="/favoris"> Favoris </Link></Favoris>
         </NavBar>
       </Container>
     )
