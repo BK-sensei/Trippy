@@ -45,9 +45,7 @@ const ContainerImage = styled.div`
 `;
 const ContainerGlobal = styled.div`
 background: #EB8D61;
-
 `
-
 
 const Hotels = () => {
     const [ hotels , setHotels ] = useState(null)

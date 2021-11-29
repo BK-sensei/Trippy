@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
+import Hotel from './Hotel'
 
 const RoomsStyle = styled.div`
 *{
@@ -14,6 +15,12 @@ flex-wrap: wrap;
 font-style: normal;
 font-weight: bold;
 background: #EEE6DD;
+`
+
+const Title = styled.div`
+    display: flex;
+    justify-content: center;
+    background: #EEE6DD;
 `
 
 const RoomsCard = styled.div`
@@ -46,8 +53,10 @@ const Rooms = (props) => {
             })
     }, [id])
         console.log("roomState :", roomsState)
-    return (
 
+    return (
+        <>
+        {/* <Title><h2>{hotel.name}</h2></Title> */}
         <RoomsStyle>
             {roomsState.map(element => (
                 <RoomsCard>
@@ -60,6 +69,7 @@ const Rooms = (props) => {
                 </RoomsCard>
             ))}
         </RoomsStyle>
+        </>
     )
 }
 

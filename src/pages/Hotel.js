@@ -81,7 +81,7 @@ const Hotel = (props) => {
     const { id } = useParams()
     console.log(id);
     const [hotel, setHotelState] = useState(null)
-    // const [isFavorite, setIsFavorite] = useState(false) 
+    // const [hotelTitle, setHotelTitle] = useState(name) 
     
     useEffect (() => {
         fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${id}`)
@@ -92,6 +92,12 @@ const Hotel = (props) => {
             })
     }, [id])
     // console.log("commodities :", hotel)
+
+    // const provideTitle = () => {
+    //     setHotelTitle(hotel.name)
+    // }
+
+
     return (
 
         <HotelById>
