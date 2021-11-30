@@ -23,8 +23,8 @@ const Slider2 = (props) => {
     const { id } = useParams()
     console.log("usePArams :", id);
     const [room, setRoom] = useState({})
-    const sourceUrl = "https://cdn.pixabay.com/photo/2016/06/10/01/05/hotel-room-1447201_960_720.jpg"
-    const [pictureUrl, setPictureUrl] = useState("")
+    // const sourceUrl = "https://cdn.pixabay.com/photo/2016/06/10/01/05/hotel-room-1447201_960_720.jpg"
+    // const [pictureUrl, setPictureUrl] = useState("")
     
     useEffect (() => {
         fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${id}`)

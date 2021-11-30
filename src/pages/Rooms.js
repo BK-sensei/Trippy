@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import Nav from '../components/Nav'
-import gsap from 'gsap'
+// import gsap from 'gsap'
 
 const NavHeaderRoom = styled.div`
     background: #EB8D61;
@@ -21,12 +21,12 @@ const RoomsStyle = styled.div`
     box-sizing : border-box;
 }
 `
-const Title = styled.div`
-    display: flex;
-    justify-content: center;
-    background: #EEE6DD
-    color: black;
-`
+// const Title = styled.div`
+//     display: flex;
+//     justify-content: center;
+//     background: #EEE6DD
+//     color: black;
+// `
 const RoomsCard = styled.div`
     margin: 5px 10px 5px 10px;
     border : thick double #f1f1f1;
