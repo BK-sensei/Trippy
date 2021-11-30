@@ -111,6 +111,7 @@ const Hotel = (props) => {
                 <HotelName>
                     <h1>{hotel.name}</h1>
                     <p>{hotel.address}</p>
+                    <p>Rooms start at : {hotel.price}€ ||</p>
                     <ButtonFavoris 
                       hotelId={hotel._id}
                       clickFavoris={favoris} 
