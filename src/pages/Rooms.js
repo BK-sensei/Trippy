@@ -43,13 +43,11 @@ const RoomsCard = styled.div`
         }
 `
 
-
 const Rooms = (props) => {
 
     const { id } = useParams()
     const [roomsState, SetRoomsState] = useState([])
     const [toggle, setToggle] = useState(false)
-    const [room, setHotelState] = useState(null)
 
 
     const changeState = () => {
@@ -63,33 +61,16 @@ const Rooms = (props) => {
         fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${id}/rooms`)
             .then(response => response.json()) 
             .then(data => {
-                console.log("data des chambres :", data)
                 SetRoomsState(data.results)
             })
    
     }, [id,])
-    console.log("props :", props)
-
-    // useEffect (() => {
-    //     fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${id}`)
-    //         .then(response => response.json()) 
-    //         .then(data => {              
-    //             setHotelState(data.result)
-    //         })
-    // }, [id])
 
     return (
         <>
         <NavHeaderRoom>
             <Nav/>
         </NavHeaderRoom>
-
-        {/* <Title> */}
-            {/* {hotel.map(element => (
-                <h2>{hotel.name}</h2>
-            ))} */}
-            
-        {/* </Title> */}
 
         <RoomsStyle>
             {roomsState.map(element => (

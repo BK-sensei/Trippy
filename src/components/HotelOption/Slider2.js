@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { Carousel } from 'react-responsive-carousel'
-import PictureCard from "../PictureCard"
 import styled from 'styled-components'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 
@@ -35,7 +34,6 @@ const Slider2 = (props) => {
                 console.log("pictures :", data)
             })
     }, [id])
-    console.log("room :", room)
 
     if( Object.keys(room).length === 0 ) {
         return <p>Chargment en cours...</p>
@@ -50,19 +48,7 @@ const Slider2 = (props) => {
             thumbWidth={170}
             showStatus={false}
             >
-                    {/* {room.pictures.map(element => {
-                        return <PictureCard 
-                            url={element}
-                        />
-                        // setPictureUrl(`https://trippy-konexio.herokuapp.com${element}`)
-                        // return <div className="each-fade">
-                        //     <img src={pictureUrl} alt="" onError={() => setPictureUrl(sourceUrl)}/>
-                        // </div>
-                    //     return <div>
-                    //     <img src={`https://trippy-konexio.herokuapp.com${element}`} alt="" />
-                    // </div>
-                    })}  */}
-
+     
                 <div className="each-fade">
                     <img src={"https://cdn.pixabay.com/photo/2016/06/10/01/05/hotel-room-1447201_960_720.jpg"} alt="" />
                 </div>

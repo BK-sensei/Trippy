@@ -7,8 +7,6 @@ import Slider2 from '../components/HotelOption/Slider2'
 import Icons from '../components/HotelOption/Icons'
 import Nav from '../components/Nav'
 import ButtonFavoris from "../components/ButtonFavoris"
-import Rooms from './Rooms'
-// import ContainerStars from "./Hotels"
 
 const HotelPage = styled.div`
     background: #EEE6DD;
@@ -29,9 +27,6 @@ const HotelName = styled.div`
     @media (max-width: 800px){
         font-size: 25px;
     }
-`
-const RoomContainer = styled.div`
-    display: none;
 `
 const HotelContainer = styled.div`
 
@@ -88,10 +83,8 @@ const Price2 = styled.div`
     font-weight: bold;
     margin-bottom: 40px;
 `
-
 const Hotel = (props) => {
     const { id } = useParams()
-    // console.log(id);
     const [hotel, setHotelState] = useState(null)
     
     useEffect (() => {
@@ -120,8 +113,10 @@ const Hotel = (props) => {
     
 
     const favoris =(id)=>{
+        
         let favoritesArray = localStorage.getItem("favorites")
 
+       
         if (!favoritesArray){                                                                 
             favoritesArray = localStorage.setItem("favorites", JSON.stringify([id]))           
         } else {                                                                                   
@@ -129,12 +124,9 @@ const Hotel = (props) => {
             favoritesArray = [...favoritesArray, id]                                           
             favoritesArray = localStorage.setItem("favorites", JSON.stringify(favoritesArray)) 
         }                       
-        // console.log("sa clik dur", id);
     }
 
     
-    // console.log("commodities :", hotel)
-
     return (
 
         <HotelPage>
@@ -144,25 +136,27 @@ const Hotel = (props) => {
             (
 
             <>   
-            <NavHeader>
-                <Nav />
-            </NavHeader> 
+                <NavHeader>
+                    <Nav />
+                </NavHeader> 
 
-            <Slider2 />
-            
-            <HotelName>
-                <h1>{hotel.name}</h1>
-                <p>{hotel.address}</p>
-                <ButtonContainer>
-                    <ButtonFavoris 
-                    hotelId={hotel._id}
-                    clickFavoris={favoris} 
-                    name="Add to favorite"  />
-                    <Link to={`/hotel/${hotel._id}/rooms`}>
-                        <ButtonRooms>See Rooms</ButtonRooms>
-                    </Link>
-                </ButtonContainer>
-            </HotelName>
+                <Slider2 />
+                
+                <HotelName>
+                    <h1>{hotel.name}</h1>
+                    <p>{hotel.address}</p>
+                    <p>Rooms start at : {hotel.price}€ || </p>
+                    <ButtonContainer>
+                        <ButtonFavoris 
+                        hotelId={hotel._id}
+                        clickFavoris={favoris} 
+                        name="Add to favorite"  
+                        />
+                        <Link to={`/hotel/${hotel._id}/rooms`}>
+                            <ButtonRooms>See Rooms</ButtonRooms>
+                        </Link>
+                    </ButtonContainer>
+                </HotelName>
             
             <HotelContainer>
                 <div>

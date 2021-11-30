@@ -48,8 +48,8 @@ const CityItems = (props) => {
 
     return (
         <Items>
-            <CityImg style={{backgroundImage: `url(${props.image})`}} alt="City">
-                <CityName>{props.cityName}</CityName>
+            <CityImg style={{backgroundImage: `url(https://trippy-konexio.herokuapp.com/${props.image})`}} alt="City">
+                <CityName>{props.name}</CityName>
             </CityImg>
         </Items>
     )

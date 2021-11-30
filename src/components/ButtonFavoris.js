@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 const Button1 = styled.button`
   /* Adapt the colors based on primary prop */
   background: #EB8D61;
@@ -14,13 +15,14 @@ const Button1 = styled.button`
   cursor: pointer;
 `;
 
+
 const ButtonFavoris = (props) =>{
     const { name, clickFavoris, hotelId} = props
-    // console.log(name);
+    console.log(name);
+    
     return (
         <>
-            <Button1 onClick={()=> clickFavoris(hotelId)} >{name}</Button1>
-            
+            <Button1 onClick={()=> clickFavoris(hotelId)} >{name}</Button1> 
         </>
     )
 }
