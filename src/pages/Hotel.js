@@ -80,6 +80,7 @@ const Hotel = (props) => {
         
         let favoritesArray = localStorage.getItem("favorites")
 
+       
         if (!favoritesArray){                                                                 
             favoritesArray = localStorage.setItem("favorites", JSON.stringify([id]))           
         } else {                                                                                   
