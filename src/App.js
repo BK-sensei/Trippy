@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import styled from "styled-components"
-
 import Home from '../src/pages/Home'
 import Hotels from './pages/Hotels'
 import Hotel from './pages/Hotel'
