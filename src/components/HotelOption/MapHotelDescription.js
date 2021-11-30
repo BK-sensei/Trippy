@@ -1,24 +1,27 @@
 import GoogleMapReact from 'google-map-react'
 import styled from 'styled-components'
-import Marker from "./Marker"
+import Marker from "../HotelCity/Marker"
 
 // import Hotels from "../pages/Hotels"
 
 const MapContainer = styled.div`
-  height: 100vh;
-  width: 100%;
+    height: 100vh;
+    width : 100%;
+
+    @media (max-width: 800px){
+        height: 50vh;
+    }
 `
-const Map = (props) => { 
-    console.log("les props",props);
+const Map2 = (props) => { 
+    // console.log("les props",props);
        const {lat1, lon1, hotels} = props
-       console.log("lat",lat1,lon1);
+    //    console.log("lat",lat1,lon1);
     // console.log("props hotel",props);
-    //   const {center} = props.hotels
-    //const {stars} = props.hotels.results
+    // const {center} = props.hotels
+    // const {stars} = props.hotels.results
     // console.log(props.hotels.results);
     return (
-        <>
-            <MapContainer>
+        <MapContainer>
                 <GoogleMapReact
                 bootstrapURLKeys={{ key: "" }}
                 defaultCenter={{
@@ -37,9 +40,8 @@ const Map = (props) => {
                      
                 
                 </GoogleMapReact>
-            </MapContainer>
-        </>  
+        </MapContainer> 
     )
 }
   
-  export default Map;
+  export default Map2;

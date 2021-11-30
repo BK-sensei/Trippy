@@ -1,143 +1,206 @@
 import React , { useState, useEffect }from 'react'
 import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import Map2 from '../components/Map2'
+import Map2 from '../components/HotelOption/MapHotelDescription'
 import Slider2 from '../components/HotelOption/Slider2'
-import AddFavorite from '../components/HotelOption/AddFavorite'
+import Icons from '../components/HotelOption/Icons'
+import Nav from '../components/Nav'
+import ButtonFavoris from "../components/ButtonFavoris"
 import Rooms from './Rooms'
+// import ContainerStars from "./Hotels"
 
-const HotelById = styled.div`
-    *{
-        margin : 0;
-        padding : 0;
-        box-sizing : border-box;
-    }
-    width: 100%;
-    font-style: normal;
-    font-weight: bold;
+const HotelPage = styled.div`
     background: #EEE6DD;
+    font-family: 'Poppins', sans-serif;
 `
+const NavHeader = styled.div`
+    background: #EB8D61;
+`
+const HotelName = styled.div`
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background-color: #201F1F;
+    color: white;
+    border-top: thick double white;
+    border-bottom: thick double white;
+    padding: 5px;
 
-const HotelTitle = styled.div`
-    width: 100%;
+    @media (max-width: 800px){
+        font-size: 25px;
+    }
+`
+const RoomContainer = styled.div`
+    display: none;
+`
+const HotelContainer = styled.div`
+
     display: flex;
+    justify-content: space-between;
+    padding: 50px;
+    gap: 0px;
+
+    @media (max-width: 800px){
+        display: flex;
+        flex-direction: column;
+        padding: 0px;
+        gap: 0px;
+        padding-bottom: 20px
+    }
+`
+const HotelCommodities = styled.div`
+  
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    @media (max-width: 800px){
+        margin-left: 10px;
+        
+`
+const MapHotel = styled.div`
+    width: 60%;
+
+    @media (max-width: 800px){
+        width: 100%;
+    }
+`
+const ButtonContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    a {
+        text-decoration: none;
+    }
+`
+const ButtonRooms = styled.div`
+    background-color: #4f74b0;
+    color : #FFFF;
+    // decoration: none;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border-radius: 3px;
+    cursor: pointer;
+`
+const Price2 = styled.div`
     font-size: 30px;
-    background: transparent;
-    background: rgba(0,0,0,.1);
-    border-bottom:  1px solid #EEE6DD;
-    h2 {
-        text-align: center;
-    }
-    button {
-        margin-left: 100px;
-        border-radius: 30px
-    }
-`
-
-const OptionContent = styled.div`
-    // display: flex;
-    // justify-content: space-between;
-    // div {
-    //     display: flex;
-    //     justify-content: right;
-    //     align-self: center;
-    // }
-`
-
-const List = styled.div`
-    // height: 100%;
-    // width: 20%;
-    // display: flex;
-    // justify-content: left;
-    // flex-direction: column;
-    // padding: 0 80px 0 0;
-    // align-items: left;
-    // list-style: none;
-    // font-size: 13px;
-    // background: transparent;
-    // background: rgba(0,0,0,.2);
-    // h3{
-    //     padding: 12px 18px 12px 18px;
-    //     font-size: 25px;
-    //     border: 1px solid #EEE6DD;
-    //     border-radius: 20px;
-    //     color: #EEE6DD;
-    //     background: rgba(0,0,0,.1)
-    // }
-    // ul{
-    //     list-style-type: none;
-    //     padding-left: 80px;
-    // }
-`
-
-const MapHotelOption = styled.div`
-    // width: 50vw;
-    // display: flex;
-
+    font-weight: bold;
+    margin-bottom: 40px;
 `
 
 const Hotel = (props) => {
-
     const { id } = useParams()
-    console.log(id);
+    // console.log(id);
     const [hotel, setHotelState] = useState(null)
-    // const [hotelTitle, setHotelTitle] = useState(name) 
     
     useEffect (() => {
         fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${id}`)
             .then(response => response.json()) 
-            .then(data => {
-                
+            .then(data => {              
                 setHotelState(data.result)
             })
     }, [id])
+
+    const numberStars = (numEtoile) => {
+        let starsArray = [
+            "https://img.icons8.com/color/48/000000/star--v1.png",
+            "https://img.icons8.com/color/48/000000/star--v1.png",
+            "https://img.icons8.com/color/48/000000/star--v1.png",
+            "https://img.icons8.com/color/48/000000/star--v1.png",
+            "https://img.icons8.com/color/48/000000/star--v1.png"
+        ]
+        starsArray.forEach((stars,index) => {
+            if(index < numEtoile){
+               starsArray[index]="https://img.icons8.com/fluency/48/000000/star.png"
+            }
+        })
+        return starsArray
+    }
+    
+
+    const favoris =(id)=>{
+        let favoritesArray = localStorage.getItem("favorites")
+
+        if (!favoritesArray){                                                                 
+            favoritesArray = localStorage.setItem("favorites", JSON.stringify([id]))           
+        } else {                                                                                   
+            favoritesArray = JSON.parse(favoritesArray)                                        
+            favoritesArray = [...favoritesArray, id]                                           
+            favoritesArray = localStorage.setItem("favorites", JSON.stringify(favoritesArray)) 
+        }                       
+        // console.log("sa clik dur", id);
+    }
+
+    
     // console.log("commodities :", hotel)
-
-    // const provideTitle = () => {
-    //     setHotelTitle(hotel.name)
-    // }
-
 
     return (
 
-        <HotelById>
+        <HotelPage>
             {hotel === null ? 
-            (<p>en cour de chargement ...</p>) 
+            (<p>Loading...</p>) 
             :
             (
-            <>    
-                 <Slider2 />
-                <HotelTitle>
-                    <h2>{hotel.name}</h2>
-                    <button onClick={() => AddFavorite} >
-                        add to favorites
-                    </button>
-                </HotelTitle>
-                <OptionContent>
-                    <List>
-                        <div><h3>Options :</h3></div>
-                        <>
-                        {hotel.commodities.map(element => (
-                            <ul>
-                                <li>
-                                    {element}
-                                </li>
-                            </ul>
-                        ))}
-                        </>
-                    </List>
-                    <MapHotelOption>
-                        <Map2 
-                            lat1={hotel.location.lat} 
-                            lon1={hotel.location.lon}
-                            hotels={hotel}
-                        />
-                    </MapHotelOption>
-                </OptionContent>
+
+            <>   
+            <NavHeader>
+                <Nav />
+            </NavHeader> 
+
+            <Slider2 />
+            
+            <HotelName>
+                <h1>{hotel.name}</h1>
+                <p>{hotel.address}</p>
+                <ButtonContainer>
+                    <ButtonFavoris 
+                    hotelId={hotel._id}
+                    clickFavoris={favoris} 
+                    name="Add to favorite"  />
+                    <Link to={`/hotel/${hotel._id}/rooms`}>
+                        <ButtonRooms>See Rooms</ButtonRooms>
+                    </Link>
+                </ButtonContainer>
+            </HotelName>
+            
+            <HotelContainer>
+                <div>
+                    <p>
+                    {numberStars(hotel.stars).map(stars =>
+                        <img src={stars} alt="nombre d'avis"/> 
+                    )}  
+                    </p>
+                    <Price2>
+                        Price : {hotel.price}€
+                    </Price2>
+                    <h2>Commodities</h2>
+                    {hotel.commodities.filter (function ( item, index ) {
+                    return hotel.commodities.indexOf( item ) === index
+                    }).map(element => (
+                        <HotelCommodities>
+                            <div>
+                                <Icons commodity={element}></Icons>
+                            </div>
+                            <div>
+                                <p>{element}</p>
+                            </div>
+                        </HotelCommodities>
+                    ))}
+                </div>
+                <MapHotel>
+                    <Map2
+                        lat1={hotel.location.lat} 
+                        lon1={hotel.location.lon}
+                        hotels={hotel}
+                    />
+                </MapHotel>
+            </HotelContainer>
+
             </>
             )}
        
-        </HotelById>
+        </HotelPage>
     )
 }
 

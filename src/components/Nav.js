@@ -1,4 +1,7 @@
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
+import {FaRegHeart} from 'react-icons/fa'
+
 
 const Container = styled.nav` 
   display : flex;
@@ -19,17 +22,30 @@ const H2 = styled.h2`
   font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 30px;
   line-height: 36px;
   text-align: center;
   color: #FFFBFB;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  a{
+    text-decoration:none;
+    color: white;
+}
 `
-const Favoris = styled.p`
+const Favoris = styled.div`
+  display: flex;
+  align-items: center;
   font-family: 'Poppins', sans-serif;
   font-style: normal;
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: bold;
   color: #FFFBFB;
+a{
+    text-decoration:none;
+    color: white;
+}
+  
 `
 
 const Nav = () => {
@@ -37,8 +53,8 @@ const Nav = () => {
     return (
       <Container>
         <NavBar>
-          <H2>Trippy</H2>
-          <Favoris>Favoris</Favoris>
+          <H2><Link to="/">Trippy</Link></H2>
+          <Favoris><Link to="/favoris"><p>Favorites <FaRegHeart /></p> </Link></Favoris>
         </NavBar>
       </Container>
     )

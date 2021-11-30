@@ -1,7 +1,6 @@
 import { React } from 'react';
 import styled from 'styled-components';
 
-
 const CityItems = (props) => {
 
     const Items = styled.div`
@@ -17,6 +16,10 @@ const CityItems = (props) => {
         background-repeat: no-repeat;
         background-size: cover;
         border-radius: 10px;
+
+        @media (max-width: 400px){
+            height: 300px;
+        }
     `
     const CityName = styled.h4`
         width: 320px;
@@ -26,6 +29,7 @@ const CityItems = (props) => {
         font-style: normal;
         font-weight: bold;
         font-size: 20px;
+        text-transform: uppercase;
         line-height: 30px;
         display: flex;
         align-items: center;
@@ -34,6 +38,10 @@ const CityItems = (props) => {
         background: rgba(0,0,0,0.6);
         border-radius: 0px 0px 10px 10px;
         top: 313px;
+
+        @media (max-width: 400px){
+            top: 233px;
+        }
     `
 
     console.log(props.image)

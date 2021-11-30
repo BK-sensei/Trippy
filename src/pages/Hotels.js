@@ -1,50 +1,109 @@
 import { useState, useEffect, } from "react";
 import { useParams } from 'react-router-dom'
-import Map from "../components/Map";
-import Button from "../components/Button";
+import Map from '../components/HotelCity/Map';
+import Button from "../components/HotelCity/Button";
 import { Link } from "react-router-dom";
 import styled from 'styled-components'
 import Nav from "../components/Nav"
 
-const Container = styled.div` 
-    border : 1px solid black;
-    margin-top :10px;
-    border-radius: 30px;
-    width : 380px;
-    background: transparent;
-background: rgba(0,0,0,.1);
-h1, p , a {
-    padding-left : 20px;
-    color: black;
-    text-decoration:none; 
-}
-img {
-    width:20px;
-}
-`;
-const Span = styled.span` 
-    font-weight: bold;
-`;
+const NavHeader = styled.div`
+    background: #EB8D61;
+`
+const ListHotels = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+const HotelsHeader = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1{
+        border-top: thick double;
+        border-bottom: thick double;
+        padding: 5px;
+    }
+`
+const Container2 = styled.div` 
+    display:flex;
+    padding-bottom: 30px;
+    gap: 20px;
+    background: #EEE6DD;
+    font-family: 'Poppins', sans-serif;
+
+    @media (max-width: 850px){
+        width: 100%;
+        display: flex;
+        align-items : center;
+        flex-direction: column;
+        gap: 0px;
+    }
+`
 const Container1 = styled.div` 
     margin : 0px 0px 0px 10px;
     height: 100vh;
-    width : 410px;
+    // width : 410px;
     overflow:scroll;
-`;
-const Container2 = styled.div` 
-    display:flex;
-    margin-bottom: 30px;
-    background: #EEE6DD;
-`;
-const ContainerImage = styled.div`
+
+    @media (max-width: 400px){
+        margin : 0px 10px 0px 10px;
+    }
+`
+const Container = styled.div` 
+    // width : 380px;
+    border : 1px solid black;
+    margin-top : 10px;
+    border-radius: 10px;
+    background-color: #201F1F;
+    color: #E5E5E5;
+
+    h2 {
+        margin-top: 0;
+    }
+
+    h2, p , a {
+        padding-left : 20px;
+        color: black;
+        text-decoration: none; 
+        color: #E5E5E5;
+    }
+    img {
+        width: 20px;
+    }
+`
+const Span = styled.span` 
+    font-weight: bold;
+`
+const Price = styled.div`
+    width: 27%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E5E5E5;
+    color: #201F1F;
+    margin-left : 20px;
+    border-radius: 5px;
+    padding: 5px 0px;
+`
+const Pagination = styled.div`
+    display: flex;
+    justify-content: center;
+    whidth: 100%;
+    // background: white;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    margin-top: 10px;
+
+    @media (max-width: 400px){
+        margin-bottom : 10px;
+    }
+`
+const ContainerStars = styled.div`
     display:flex;
     height : 20px;
     padding :  0px 20px 10px 0px;
     justify-content: flex-end;
     // align-item: flex-end;
-`;
-const ContainerGlobal = styled.div`
-background: #EB8D61;
 `
 
 const Hotels = () => {
@@ -76,7 +135,7 @@ const Hotels = () => {
         return starsArray
     }
     const paginationFunction = (num) =>{
-        console.log("sa clik dur",num);
+        // console.log("sa clik dur",num);
         setPagination(num)
     }
     // console.log("pagination",pagination);
@@ -84,39 +143,50 @@ const Hotels = () => {
     return (
       <>
         { hotels === null ? 
-            (<p>chargement de la liste ......</p>) 
+            (<p>Loading...</p>) 
             : (
                 <div>
-                    <ContainerGlobal>
+                    <NavHeader>
                         <Nav />
-                    </ContainerGlobal>
+                    </NavHeader>
+
                     <Container2>  
-                        <Container1>
-                            <h1>la liste d'hotel à {city} </h1>
-                            <Button num={1} click={paginationFunction} />
-                            <Button num={2} click={paginationFunction}/>
-                            <Button num={3} click={paginationFunction}/>
-                            <Button num={4} click={paginationFunction}/>
-                            
-                            {hotels.results.map((hotel, index) => 
-                                <Container key={`${hotel.name}${index}`} >
-                                    <Link to={`/hotel/${hotel._id}` }>
-                                    {/* <img src={`https://trippy-konexio.herokuapp.com${hotel.pictures[29]}`} /> */}
-                                    <h1>{hotel.name} </h1>
-                                    <p> Adresse : {hotel.address}</p>
-                                    <p> Le prix :<Span> {hotel.price}€</Span></p>
-                                    {/* <p> {hotel.stars}</p> */}
-                                    
-                                        <ContainerImage>
-                                            {numberStars(hotel.stars).map(stars =>                                               
-                                                <img src= {stars} alt="nombre d'avis"/>               
+                        <ListHotels>
+                            <HotelsHeader>
+                                <h1>Hotels in {city}</h1>
+                            </HotelsHeader>
+
+                            <Container1>
+                                {hotels.results.map((hotel, index) => 
+                                    <Container key={`${hotel.name}${index}`} >
+
+                                        <Link to={`/hotel/${hotel._id}` }>
+                                        {/* <img src={`https://trippy-konexio.herokuapp.com${hotel.pictures[29]}`} /> */}
+                                        <h2>{hotel.name} </h2>
+                                        <p> <Span>Adress :</Span> {hotel.address}</p>
+                                        <Price>
+                                            <Span>Price : {hotel.price}€</Span>
+                                        </Price>
+                                        <ContainerStars>
+                                            {numberStars(hotel.stars).map(stars =>
+                                                <img src= {stars} alt="nombre d'avis"/> 
                                             )}   
-                                        </ContainerImage>
-                                    </Link>    
-                                </Container>
-                            )}   
-                        </Container1>
+                                        </ContainerStars>
+                                        </Link>
+
+                                    </Container>
+                                )}  
+                            </Container1>
+                            <Pagination>
+                                <Button num={1} click={paginationFunction} />
+                                <Button num={2} click={paginationFunction}/>
+                                <Button num={3} click={paginationFunction}/>
+                                <Button num={4} click={paginationFunction}/>
+                            </Pagination> 
+                        </ListHotels>
+                       
                         <Map hotels = {hotels} /> 
+                        
                     </Container2> 
                 </div>
             )    

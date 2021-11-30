@@ -6,7 +6,11 @@ import Marker from "./Marker"
 
 const MapContainer = styled.div`
   height: 100vh;
-  width: 65vw;
+  width: 70%;
+
+  @media (max-width: 400px){
+      height: 50vh;
+  }
 `
 const Map = (props) => { 
        

@@ -30,6 +30,17 @@ const Home = (props) => {
         background: #EEE6DD; 
         padding-bottom: 100px;
         padding-top: 50px;
+
+        @media (max-width: 970px){
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width: 650px){
+            // grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
+            row-gap: 30px;
+            padding-bottom: 50px;
+        }
     `
     const Destinations = styled.div`
         width: 100%;
@@ -37,6 +48,15 @@ const Home = (props) => {
         flex-direction: column;
         background: #EEE6DD; 
         padding-top: 50px;
+
+        @media (max-width: 400px){
+            padding-top: 30px;
+        }
+    `
+    const ContainerMiniTitle = styled.div`
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
     `
     const MiniTitle = styled.h3`
         font-family: 'Poppins', sans-serif;
@@ -44,14 +64,18 @@ const Home = (props) => {
         font-weight: 600;
         font-size: 14px;
         line-height: 21px;
-        display: flex;
-        justify-content:center;
-        text-align: center;
         color: #FFFFFF;
         background: rgba(235, 141, 97, 0.65);
         margin: 0;
-        margin-left: 650px;
-        margin-right: 650px;
+        padding: 2px 40px;
+
+        @media (max-width: 400px){
+            width: 50%;
+            margin: 0px;
+            padding: 2px 0px;
+            font-size: 10px;
+            line-height: 15px;
+        }
     `
     const Title = styled.h2`
         font-family: 'Poppins', sans-serif;
@@ -65,6 +89,10 @@ const Home = (props) => {
         text-align: center;
         color: #000000;
         margin: 0;
+
+        @media (max-width: 400px){
+            font-size: 16px;
+        }
     `
     const Text = styled.p`
         font-family: 'Poppins', sans-serif;
@@ -75,6 +103,11 @@ const Home = (props) => {
         text-align: center;
         margin: 0;
         color: #555555;
+
+        @media (max-width: 400px){
+            font-size: 10px;
+            line-height: 15px;
+        }
     `
 
     // console.log("Image des villes", imgCities);
@@ -88,10 +121,12 @@ const Home = (props) => {
                 (
                     <>
                     <Destinations>
+                        <ContainerMiniTitle>
                             <MiniTitle>CITY TRIP</MiniTitle>
-                            <Title>Popular Destinations</Title>
-                            <Text>Explore new cities, discover new culures and create new memories. <br/> Read the latest reviews, search for the lowest prices, stay at the greatest hotels and save money on Trippy.
-                            </Text>
+                        </ContainerMiniTitle>
+                        <Title>Popular Destinations</Title>
+                        <Text>Explore new cities, discover new culures and create new memories. <br/> Read the latest reviews, search for the lowest prices, stay at the greatest hotels and save money on Trippy.
+                        </Text>
                     </Destinations>
 
                     <Container>

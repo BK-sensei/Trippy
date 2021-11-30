@@ -10,6 +10,10 @@ const Header = (props) => {
         width: 100%;
         height: 100vh;
         z-index: 0;
+
+        @media (max-width: 600px){
+            height: 100%;
+        }
     `
 
     const ElementHeader = styled.div`
@@ -18,6 +22,16 @@ const Header = (props) => {
         padding-left: 110px;
         padding-top: 150px;
         z-index: 2;
+
+        @media (max-width: 630px){
+            padding-left: 40px;
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        @media (max-width: 420px){
+            padding-left: 20px;
+            padding-top: 80px;
+        }
     `
 
     const Title = styled.h1`
@@ -28,6 +42,23 @@ const Header = (props) => {
         line-height: 90px;
         color: #FFFFFF;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        @media (max-width: 900px){
+            font-size: 50px;
+            line-height: 60px;
+        }
+        @media (max-width: 760px){
+            font-size: 40px;
+            line-height: 50px;
+        }
+        @media (max-width: 630px){
+            font-size: 30px;
+            line-height: 40px;
+        }
+        @media (max-width: 375px){
+            font-size: 20px;
+            line-height: 30px;
+        }
     `
 
     const Button = styled.button`
@@ -49,13 +80,19 @@ const Header = (props) => {
         color: white;
         border: none;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        @media (max-width: 600px){
+            width: 120px;
+            height: 25px;
+            font-size: 12px;
+        }
     `
 
     return (
         <Header>
             <Nav />
             <ElementHeader>
-                <Title>READY FOR<br/>THE <span style={{color: '#EB8D61'}}>TRIPPY</span>EST CITY ?</Title>
+                <Title>READY FOR THE<br/><span style={{color: '#EB8D61'}}>TRIPPY</span>EST ADVENTURE ?</Title>
                 <Button>Choose a city</Button>
             </ElementHeader>
         </Header>

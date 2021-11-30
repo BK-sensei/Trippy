@@ -1,16 +1,16 @@
 // import { useState } from 'react';
-import { useEffect, useState } from 'react';
-import Slider2 from '../components/HotelOption/Slider2';
+// import { useEffect, useState } from 'react';
+// import Slider2 from '../components/HotelOption/Slider2';
 
-const Test = () => {
-    return (
-        <div>
-            <Slider2/>
-        </div>
-    );
-}
+// const Test = () => {
+//     return (
+//         <div>
+//             <Slider2/>
+//         </div>
+//     );
+// }
 
-export default Test;
+// export default Test;
 
 // IoIosHeart
 // IoIosHeartEmpty
