@@ -54,11 +54,11 @@ const HotelCard =( {hotel, index, selectedHotel }) => {
     const ref = useRef()
 
     useEffect(() => {
-        const idHotel = hotel._id
-        if (selectedHotel === idHotel) {
+        // const idHotel = hotel._id
+        if (selectedHotel === hotel) {
           ref.current.scrollIntoView({ behavior: "smooth" })
         }
-      }, [selectedHotel])
+      }, [selectedHotel,hotel])
 
     const numberStars = (numEtoile) => {
         let starsArray = [
