@@ -2,8 +2,6 @@ import GoogleMapReact from 'google-map-react'
 import styled from 'styled-components'
 import Marker from "./Marker"
 
-// import Hotels from "../pages/Hotels"
-
 const MapContainer = styled.div`
   height: 100vh;
   width: 70%;
@@ -27,8 +25,6 @@ const Map = (props) => {
     // console.log("props hotel",props);
   const {center} = props.hotels
   
-    //const {stars} = props.hotels.results
-    console.log("les props pour maker ",props.hotels.results);
     return (
         <>
             <MapContainer>

@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import { BiWifi, BiDrink, BiHandicap, BiFridge } from 'react-icons/bi';
 import { FaDog, FaSmokingBan, FaSwimmer, FaShuttleVan, FaSmoking, FaParking } from 'react-icons/fa';
@@ -7,7 +8,6 @@ import { IoIosBed } from 'react-icons/io';
 import { CgGym } from 'react-icons/cg';
 import { SiGotomeeting } from 'react-icons/si';
 import { GrSpa, GrLanguage } from 'react-icons/gr';
-import styled from 'styled-components';
 
 const Icons = (props) => {
     const IconCommodity = styled.div`

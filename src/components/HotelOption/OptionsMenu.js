@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import ButtonOption from './ButtonOption'
 
@@ -12,7 +11,6 @@ const OptionContent = styled.div`
         padding: 40px;
     }
 `
-
 
 const OptionsMenu = (props) =>  {
 

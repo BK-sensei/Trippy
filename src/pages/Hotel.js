@@ -77,10 +77,7 @@ const Hotel = (props) => {
     }, [id])
 
     const favoris =(id)=>{
-        
         let favoritesArray = localStorage.getItem("favorites")
-
-       
         if (!favoritesArray){                                                                 
             favoritesArray = localStorage.setItem("favorites", JSON.stringify([id]))           
         } else {                                                                                   
@@ -88,11 +85,7 @@ const Hotel = (props) => {
             favoritesArray = [...favoritesArray, id]                                           
             favoritesArray = localStorage.setItem("favorites", JSON.stringify(favoritesArray)) 
         }                       
-        // console.log("ça clique dur", id);
     }
-
-    
-    // console.log("commodities :", hotel)
 
     return (
 
@@ -101,7 +94,6 @@ const Hotel = (props) => {
             (<p>Loading...</p>) 
             :
             (
-
             <>   
                 <NavHeader>
                     <Nav />
@@ -144,7 +136,6 @@ const Hotel = (props) => {
                         />
                     </MapHotel>
                 </HotelContainer>
-
             </>
             )}
        

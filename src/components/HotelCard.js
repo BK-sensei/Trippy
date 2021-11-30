@@ -9,11 +9,9 @@ const Container = styled.div`
     border-radius: 10px;
     background-color: #201F1F;
     color: #E5E5E5;
-
     h2 {
         margin-top: 0;
     }
-
     h2, p , a {
         padding-left : 20px;
         color: black;
@@ -24,7 +22,6 @@ const Container = styled.div`
         width: 20px;
     }
 `
-
 const ContainerStars = styled.div`
     display:flex;
     height : 20px;
@@ -34,7 +31,7 @@ const ContainerStars = styled.div`
 `
 const Span = styled.span` 
     font-weight: bold;
-`;
+`
 const Price = styled.div`
     width: 27%;
     display: flex;
@@ -47,14 +44,11 @@ const Price = styled.div`
     padding: 5px 0px;
 `
 
-
-
 const HotelCard =( {hotel, index, selectedHotel }) => {
     
     const ref = useRef()
 
     useEffect(() => {
-        // const idHotel = hotel._id
         if (selectedHotel === hotel._id) {
           ref.current.scrollIntoView({ behavior: "smooth" })
         }
@@ -76,9 +70,6 @@ const HotelCard =( {hotel, index, selectedHotel }) => {
         })
         return starsArray
     }
-    // console.log("log de ref",ref);
-    // console.log("log de hotel id =>",hotel._id);
-    // console.log("selected hotel=>", selectedHotel);
     
     return(
         <Container  

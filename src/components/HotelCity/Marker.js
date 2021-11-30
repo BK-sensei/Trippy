@@ -9,9 +9,8 @@ let InfoWindow = styled.div`
     border-radius : 20px;
 `
 const Marker = (props) => {
-    // console.log(" props de marker",props.prix);
-    // console.log("props de marker", props);
     const { prix, id, func } = props 
+    
     return (
       <>
         <img 

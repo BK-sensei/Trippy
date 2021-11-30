@@ -68,8 +68,7 @@ const Hotels = () => {
     const [pagination , setPagination]= useState(1)
     const [selectedHotel , setSelectedHotel] = useState(null)
     const { city} = useParams()
-    // const ref = useRef()
-    // console.log("city",city);
+
     useEffect(() => {
         fetch( `https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=${pagination}`)
             .then(reponse => reponse.json())
@@ -77,17 +76,13 @@ const Hotels = () => {
     }, [city, pagination]);
 
     const paginationFunction = (num) =>{
-        console.log("sa clik dur",num);
         setPagination(num)
     }
 
     const clickHover = (id) =>{
-        // console.log("mon state id",id);
         setSelectedHotel(id)
     }
-    // console.log(selected,"selected ");
-    // console.log("pagination",pagination);
-    // console.log("state hotels",hotels.results);
+
     return (
       <>
         { hotels === null ? 

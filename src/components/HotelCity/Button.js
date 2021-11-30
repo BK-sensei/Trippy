@@ -1,8 +1,7 @@
 import styled from 'styled-components'
+
 const Button1 = styled.button`
   /* Adapt the colors based on primary prop */
-//   background: #201F1F;
-//   color: #E5E5E5;
     background: transparent;
     color: #201F1F;
     border: none;

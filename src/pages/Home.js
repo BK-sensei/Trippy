@@ -14,9 +14,6 @@ const Home = (props) => {
           .then(response => response.json())
           .then(data => setCities(data.cities))
         }, [])
-    //console.log("cities =>",cities);
-
-    // const [imgCities] = useState(city)
 
     const Container = styled.div`
         display: grid;
