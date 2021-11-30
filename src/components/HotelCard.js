@@ -55,7 +55,7 @@ const HotelCard =( {hotel, index, selectedHotel }) => {
 
     useEffect(() => {
         // const idHotel = hotel._id
-        if (selectedHotel === hotel) {
+        if (selectedHotel === hotel._id) {
           ref.current.scrollIntoView({ behavior: "smooth" })
         }
       }, [selectedHotel,hotel])
