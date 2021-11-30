@@ -77,25 +77,21 @@ const Hotel = (props) => {
     }, [id])
 
     const favoris =(id)=>{
-        // let favoritesArray = localStorage.setItem("favorisId",`${id}`) // je crée la clé favoris et je luis met la valeur de l id de l'hotel
-        // favoritesArray = localStorage.getItem("favorisId")
-        // On va créer une variable où on va stocker les id des films choisis
-        // On va d'abord voir si elle contient un ID
+        
         let favoritesArray = localStorage.getItem("favorites")
 
-        // Pour cela on créer une condition pour décider quoi faire si l'id est là
-        if (!favoritesArray){                                                                 // si l'ID n'est pas là, on le créé 
-            favoritesArray = localStorage.setItem("favorites", JSON.stringify([id]))           // ici l'ID entouré de [] est une string grâce au 'stringify' | on passe de [4532879] à "[4532879]"
-        } else {                                                                               // si il est déjà là, je veux modifier la valeur de la clé 'favorites'    
-            favoritesArray = JSON.parse(favoritesArray)                                        // grâce au 'parse' je transforme la variable 'favoritesArray' en tableau
-            favoritesArray = [...favoritesArray, id]                                           // ensuite on pousse chaque ID choisi dans le tableau créé juste avant
-            favoritesArray = localStorage.setItem("favorites", JSON.stringify(favoritesArray)) // pour finir on transforme la variable qui est un tableau 'favoritesArray' 
+        if (!favoritesArray){                                                                 
+            favoritesArray = localStorage.setItem("favorites", JSON.stringify([id]))           
+        } else {                                                                                   
+            favoritesArray = JSON.parse(favoritesArray)                                        
+            favoritesArray = [...favoritesArray, id]                                           
+            favoritesArray = localStorage.setItem("favorites", JSON.stringify(favoritesArray)) 
         }                       
-        console.log("sa clik dur", id);
+        // console.log("ça clique dur", id);
     }
 
     
-    console.log("commodities :", hotel)
+    // console.log("commodities :", hotel)
 
     return (
 
