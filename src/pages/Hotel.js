@@ -88,11 +88,11 @@ const Hotel = (props) => {
             favoritesArray = [...favoritesArray, id]                                           
             favoritesArray = localStorage.setItem("favorites", JSON.stringify(favoritesArray)) 
         }                       
-        console.log("sa clik dur", id);
+        // console.log("ça clique dur", id);
     }
 
     
-    console.log("commodities :", hotel)
+    // console.log("commodities :", hotel)
 
     return (
 
@@ -112,6 +112,7 @@ const Hotel = (props) => {
                 <HotelName>
                     <h1>{hotel.name}</h1>
                     <p>{hotel.address}</p>
+                    <p>Rooms start at : {hotel.price}€ ||</p>
                     <ButtonFavoris 
                       hotelId={hotel._id}
                       clickFavoris={favoris} 

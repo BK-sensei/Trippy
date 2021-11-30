@@ -1,24 +1,22 @@
-import { React, useState} from 'react';
+import { React, useState, useEffect} from 'react';
 import styled from 'styled-components';
-
 import HeaderHome from '../components/Home/HeaderHome'
 import CityItems from '../components/Home/CityItems'
 import { Link } from "react-router-dom";
-import city from '../cities.json'
+// import city from '../cities.json' ---> fichier avec de plus belles images pour les villes
 
 const Home = (props) => {
 
-    // const [cities, setCities] = useState(null)
+    const [cities, setCities] = useState(null)
 
-    // Fetch pour récupérer les éléments de l'API
-    // useEffect (() => {
-    //     fetch('https://trippy-konexio.herokuapp.com/api/home')
-    //       .then(response => response.json())
-    //       .then(data => setCities(data.cities))
-    //     }, [])
-    // console.log("cities =>",cities);
+    useEffect (() => {
+        fetch('https://trippy-konexio.herokuapp.com/api/home')
+          .then(response => response.json())
+          .then(data => setCities(data.cities))
+        }, [])
+    //console.log("cities =>",cities);
 
-    const [imgCities] = useState(city)
+    // const [imgCities] = useState(city)
 
     const Container = styled.div`
         display: grid;
@@ -115,7 +113,7 @@ const Home = (props) => {
     return (
         <>
             <HeaderHome />
-                {imgCities === null ?
+                {cities === null ?
                 (<p>Loading...</p>)
                 :
                 (
@@ -130,14 +128,14 @@ const Home = (props) => {
                     </Destinations>
 
                     <Container>
-                        {imgCities.map(imgCity => (
-                        <Link to={`/hotels/${imgCity.name}`}>
+                        {cities.map(city => (
+                        <Link to={`/hotels/${city.slug}`}>
                             <CityItems
-                                image={imgCity.image}
-                                cityName={imgCity.name}
-                                preTitle={imgCity.preTitle}
-                                title={imgCity.title}
-                                text={imgCity.text}
+                                image={city.source}
+                                name={city.name}
+                                // preTitle={imgCity.preTitle}
+                                // title={imgCity.title}
+                                // text={imgCity.text}
                             />
                         </Link>
                         ))}

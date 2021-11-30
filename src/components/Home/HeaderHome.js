@@ -82,7 +82,7 @@ const Header = (props) => {
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
         @media (max-width: 600px){
-            width: 120px;
+            width: 140px;
             height: 25px;
             font-size: 12px;
         }
@@ -93,7 +93,7 @@ const Header = (props) => {
             <Nav />
             <ElementHeader>
                 <Title>READY FOR THE<br/><span style={{color: '#EB8D61'}}>TRIPPY</span>EST ADVENTURE ?</Title>
-                <Button>Choose a city</Button>
+                <Button>Choose a city below</Button>
             </ElementHeader>
         </Header>
     );
