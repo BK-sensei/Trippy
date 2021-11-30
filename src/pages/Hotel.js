@@ -83,6 +83,16 @@ const Price2 = styled.div`
     font-weight: bold;
     margin-bottom: 40px;
 `
+
+const Stars = styled.div`
+display: flex;
+justify-content: center;
+img{
+    width: 20px;
+}
+
+
+`
 const Hotel = (props) => {
     const { id } = useParams()
     const [hotel, setHotelState] = useState(null)
@@ -145,7 +155,12 @@ const Hotel = (props) => {
                 <HotelName>
                     <h1>{hotel.name}</h1>
                     <p>{hotel.address}</p>
-                    <p>Rooms start at : {hotel.price}€ || </p>
+                    <p>Rooms start at : {hotel.price}€ </p>
+                    <Stars>
+                    {numberStars(hotel.stars).map(stars =>
+                        <img src={stars} alt="nombre d'avis"/> 
+                    )}  
+                    </Stars>
                     <ButtonContainer>
                         <ButtonFavoris 
                         hotelId={hotel._id}
@@ -160,14 +175,6 @@ const Hotel = (props) => {
             
             <HotelContainer>
                 <div>
-                    <p>
-                    {numberStars(hotel.stars).map(stars =>
-                        <img src={stars} alt="nombre d'avis"/> 
-                    )}  
-                    </p>
-                    <Price2>
-                        Price : {hotel.price}€
-                    </Price2>
                     <h2>Commodities</h2>
                     {hotel.commodities.filter (function ( item, index ) {
                     return hotel.commodities.indexOf( item ) === index

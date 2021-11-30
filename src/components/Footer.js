@@ -93,6 +93,10 @@ const Footer = () => {
         align-items: center;
         color: #E5E5E5;
         padding: 30px 0;
+        a{
+            text-decoration: none;
+            color: white;
+        }
 
         @media (max-width: 780px){
             display: flex;
@@ -128,15 +132,15 @@ const Footer = () => {
             <Items>
                 <div>
                     <h4>Best of Trippy</h4>
-                    <p>Our Hotels Selection </p>
-                    <p>Offers of the moment</p>
-                    <p>Contact us</p>
+                    <a href="https://www.tripadvisor.com/VacationRentals-g187514-Reviews-Madrid-Vacation_Rentals.html"><p>Our Hotels Selection</p></a>
+                    <a href="https://www.tripadvisor.com/Hotel_Review-g187147-d188975-Reviews-Four_Seasons_Hotel_George_V-Paris_Ile_de_France.html"><p>Offers of the moment</p></a>
+                    <a href ="https://www.linkedin.com/in/benoit-paquier/"><p>Contact us</p></a>
                 </div>
                 <div>
                     <h4>Our partners</h4>
-                    <p>The Useless Website</p>
-                    <p>Mondrian And Me</p>
-                    <p>Heyyyyy Hooooo</p>
+                    <a href="https://theuselessweb.com/"><p>The Useless Website</p></a>
+                    <a href="https://mondrianandme.com/"><p>Mondrian And Me</p></a>
+                    <a href="https://hooooooooo.com/"><p>Heyyyyy Hooooo</p></a>
                 </div>
                 <AboutUs>
                     <h4>About us</h4>

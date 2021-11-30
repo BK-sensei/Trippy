@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import Nav from '../components/Nav'
-// import gsap from 'gsap'
 
 const NavHeaderRoom = styled.div`
     background: #EB8D61;
