@@ -67,7 +67,6 @@ const Hotels = () => {
     const [ hotels , setHotels ] = useState(null)
     const [pagination , setPagination]= useState(1)
     const [selectedHotel , setSelectedHotel] = useState(null)
-    const [selected , setSelected] = useState(null)
     const { city} = useParams()
     // const ref = useRef()
     // console.log("city",city);

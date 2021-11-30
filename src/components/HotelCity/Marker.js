@@ -11,7 +11,7 @@ let InfoWindow = styled.div`
 const Marker = (props) => {
     // console.log(" props de marker",props.prix);
     // console.log("props de marker", props);
-    const {prix, click, id,func} = props 
+    const { prix, id, func } = props 
     return (
       <>
         <img 
