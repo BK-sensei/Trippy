@@ -1,7 +1,8 @@
-import { useState, useEffect, } from "react";
+import { useState, useEffect} from "react";
 import { useParams } from 'react-router-dom'
 import Map from "../components/Map";
 import Button from "../components/Button";
+import HotelCard from "../components/HotelCard";
 import { Link } from "react-router-dom";
 import styled from 'styled-components'
 import Nav from "../components/Nav"
@@ -33,13 +34,13 @@ const Container2 = styled.div`
     display:flex;
     margin-bottom: 30px;
 `;
-const ContainerImage = styled.div`
-    display:flex;
-    height : 20px;
-    padding :  0px 20px 10px 0px;
-    justify-content: flex-end;
-    // align-item: flex-end;
-`;
+// const ContainerImage = styled.div`
+//     display:flex;
+//     height : 20px;
+//     padding :  0px 20px 10px 0px;
+//     justify-content: flex-end;
+//     // align-item: flex-end;
+// `;
 const ContainerGlobal = styled.div`
 background: #EB8D61;
 
@@ -49,35 +50,30 @@ background: #EB8D61;
 const Hotels = () => {
     const [ hotels , setHotels ] = useState(null)
     const [pagination , setPagination]= useState(1)
-    
-    
+    const [selectedHotel , setSelectedHotel] = useState(null)
+    const [selected , setSelected] = useState(null)
     const { city} = useParams()
+    // const ref = useRef()
     // console.log("city",city);
     useEffect(() => {
         fetch( `https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=${pagination}`)
             .then(reponse => reponse.json())
             .then(result => setHotels(result))
     }, [city, pagination]);
+
+    
     // console.log(hotels);
-    const numberStars = (numEtoile) => {
-        let starsArray = [
-            "https://img.icons8.com/color/48/000000/star--v1.png",
-            "https://img.icons8.com/color/48/000000/star--v1.png",
-            "https://img.icons8.com/color/48/000000/star--v1.png",
-            "https://img.icons8.com/color/48/000000/star--v1.png",
-            "https://img.icons8.com/color/48/000000/star--v1.png"
-        ]
-        starsArray.forEach((stars,index) => {
-            if(index < numEtoile){
-               starsArray[index]="https://img.icons8.com/fluency/48/000000/star.png"
-            }
-        })
-        return starsArray
-    }
+    
     const paginationFunction = (num) =>{
         console.log("sa clik dur",num);
         setPagination(num)
     }
+
+    const clickHover = (id) =>{
+        console.log("mon state id",id);
+        setSelectedHotel(id)
+    }
+    console.log(selected,"selected ");
     // console.log("pagination",pagination);
     // console.log("state hotels",hotels.results);
     return (
@@ -98,26 +94,18 @@ const Hotels = () => {
                             <Button num={4} click={paginationFunction}/>
                             
                             {hotels.results.map((hotel, index) => 
-                                <Container key={`${hotel.name}${index}`} >
-                                    <Link to={`/hotel/${hotel._id}` }>
-                                    {/* <img src={`https://trippy-konexio.herokuapp.com${hotel.pictures[29]}`} /> */}
-                                    <h1>{hotel.name} </h1>
-                                    <p> Adresse : {hotel.address}</p>
-                                    <p> Le prix :<Span> {hotel.price}€</Span></p>
-                                    {/* <p> {hotel.stars}</p> */}
-                                    
-                                        <ContainerImage>
-                                            {numberStars(hotel.stars).map(stars =>
-                                                
-                                                <img src= {stars} alt="nombre d'avis"/>
-                                                
-                                            )}   
-                                        </ContainerImage>
-                                    </Link>    
-                                </Container>
+                                <HotelCard
+                                selectedHotel={selectedHotel}
+                                key={hotel.name}
+                                hotel={hotel}
+                                index={index} />
                             )}   
                         </Container1>
-                        <Map hotels = {hotels} /> 
+                        <Map 
+                        mouse={clickHover}
+                        selectedHotel = {selectedHotel}
+                        hotels = {hotels} 
+                        /> 
                     </Container2> 
                 </div>
             )    

@@ -9,11 +9,22 @@ const MapContainer = styled.div`
   width: 70%;
 `
 const Map = (props) => { 
+    console.log(("mes props dans map",props));
+    // const clickList =(marquer) =>{
+    //     console.log("sa clik dure",marquer);
+    //     console.log("log de result hotel . id =>",props.hotels.results._id );
+    //     // if(props.hotels.results._id === marquer ){
+    //     //     console.log("il sont egal");
+    //     // }else{
+    //     //     console.log("il ne sont pas egal");
+    //     // }
+    // }
        
     // console.log("props hotel",props);
   const {center} = props.hotels
+  
     //const {stars} = props.hotels.results
-    // console.log(props.hotels.results);
+    console.log("les props pour maker ",props.hotels.results);
     return (
         <>
             <MapContainer>
@@ -27,6 +38,9 @@ const Map = (props) => {
                 >
                     {props.hotels.results.map((hotel,index) => 
                         <Marker 
+                        selected={props.selectedHotel}
+                        func={props.mouse}
+                        id = {hotel._id}
                         key={hotel.name}
                         lat={hotel.location.lat}
                         lng={hotel.location.lon}

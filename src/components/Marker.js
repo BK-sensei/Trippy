@@ -10,10 +10,14 @@ let InfoWindow = styled.div`
 `
 const Marker = (props) => {
     // console.log(" props de marker",props.prix);
-    const {prix} = props 
+    // console.log("props de marker", props);
+    const {prix, click, id,func} = props 
     return (
       <>
-        <img src="https://img.icons8.com/material-two-tone/48/000000/place-marker.png" alt=" marquer des hotels"/>
+        <img 
+          onMouseEnter={() =>func(id)}
+          onMouseLeave={() =>func(null)}
+          src="https://img.icons8.com/material-two-tone/48/000000/place-marker.png" alt=" marquer des hotels"/>
         <InfoWindow>
             {prix}€
         </InfoWindow>
