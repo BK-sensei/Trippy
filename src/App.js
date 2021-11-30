@@ -7,6 +7,7 @@ import Hotel from './pages/Hotel'
 import Favoris from "./pages/Favoris"
 import NotFound from './pages/NotFound'
 import Footer from "./components/Footer";
+
 const Container = styled.div`
 
 `

@@ -5,12 +5,12 @@ import { Fade } from 'react-slideshow-image'
 
 const MapSlider = styled.div`
     background-image: 100%;
-    height: 100vh;
+    // height: 100vh;
     width: 100vw;
     position: relative;
     div img {
-        height: 100vh;
-        width: 100vw;
+        // height: 100vh;
+        width: 100%;
     }
 `
 

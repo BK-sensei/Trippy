@@ -1,12 +1,12 @@
 import styled from 'styled-components'
+
 let InfoWindow = styled.div`
+    display: flex;
+    justify-content: center;
     width : 40px;
     background : rgba(214, 208, 211, 0.44);
     border : 1px solid black;
     border-radius : 20px;
-    display:flex;
-    justify-content: center;
-   
 `
 const Marker = (props) => {
     // console.log(" props de marker",props.prix);
