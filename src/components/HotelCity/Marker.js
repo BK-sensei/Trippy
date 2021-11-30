@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from 'react'
-import gsap from 'gsap'
+// import { useState, useRef, useEffect } from 'react'
+// import gsap from 'gsap'
 import styled from 'styled-components'
 
 

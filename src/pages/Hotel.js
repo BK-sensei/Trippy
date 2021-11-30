@@ -78,11 +78,11 @@ const ButtonRooms = styled.div`
     border-radius: 3px;
     cursor: pointer;
 `
-const Price2 = styled.div`
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 40px;
-`
+// const Price2 = styled.div`
+//     font-size: 30px;
+//     font-weight: bold;
+//     margin-bottom: 40px;
+// `
 
 const Stars = styled.div`
 display: flex;
