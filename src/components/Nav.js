@@ -21,7 +21,7 @@ const H2 = styled.h2`
   font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 30px;
   line-height: 36px;
   text-align: center;
   color: #FFFBFB;

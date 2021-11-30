@@ -12,7 +12,9 @@ const Button1 = styled.button`
   padding: 0.25em 1em;
   border: none;
   border-radius: 3px;
-`
+  cursor: pointer;
+`;
+
 
 const ButtonFavoris = (props) =>{
     const { name, clickFavoris, hotelId} = props

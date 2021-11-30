@@ -13,9 +13,9 @@ const MapContainer = styled.div`
     }
 `
 const Map2 = (props) => { 
-    console.log("les props",props);
+    // console.log("les props",props);
        const {lat1, lon1, hotels} = props
-       console.log("lat",lat1,lon1);
+    //    console.log("lat",lat1,lon1);
     // console.log("props hotel",props);
     // const {center} = props.hotels
     // const {stars} = props.hotels.results

@@ -150,7 +150,7 @@ const Footer = () => {
         </Footer>
 
         <SocialNetwork>
-            <FaTwitter style={{color:'white', width:'25px', height:'25px'}} />
+            <FaTwitter style={{color:'white', width:'25px', height:'25px', paddingLeft: '80px'}} />
             <IoLogoInstagram style={{color:'white', width:'30px', height:'30px'}} />
             <IoLogoFacebook style={{color:'white', width:'30px', height:'30px'}} />
             <IoLogoLinkedin style={{color:'white', width:'30px', height:'30px'}} />

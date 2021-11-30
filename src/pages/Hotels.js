@@ -77,7 +77,7 @@ const Hotels = () => {
     }, [city, pagination]);
 
     const paginationFunction = (num) =>{
-        console.log("sa clik dur",num);
+        // console.log("sa clik dur",num);
         setPagination(num)
     }
 
