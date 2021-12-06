@@ -132,19 +132,19 @@ const Footer = () => {
             <Items>
                 <div>
                     <h4>Best of Trippy</h4>
-                    <a href="https://www.tripadvisor.com/VacationRentals-g187514-Reviews-Madrid-Vacation_Rentals.html"><p>Our Hotels Selection</p></a>
-                    <a href="https://www.tripadvisor.com/Hotel_Review-g187147-d188975-Reviews-Four_Seasons_Hotel_George_V-Paris_Ile_de_France.html"><p>Offers of the moment</p></a>
-                    <a href ="https://www.linkedin.com/in/benoit-paquier/"><p>Contact us</p></a>
+                    <a href="https://www.linkedin.com/in/marco-paulo-nascimento-pereira-465678215/"><p>Our Hotels Selection</p></a>
+                    <a href="https://www.linkedin.com/in/rebeccakaci/"><p>Offers of the moment</p></a>
+                    <a href ="https://www.linkedin.com/in/k%C3%A9vin-albert-271263227/"><p>Contact us</p></a>
                 </div>
                 <div>
                     <h4>Our partners</h4>
-                    <a href="https://theuselessweb.com/"><p>The Useless Website</p></a>
-                    <a href="https://mondrianandme.com/"><p>Mondrian And Me</p></a>
-                    <a href="https://hooooooooo.com/"><p>Heyyyyy Hooooo</p></a>
+                    <a href="https://www.booking.com/"><p>Booking</p></a>
+                    <a href="https://www.trivago.fr/"><p>Trivago</p></a>
+                    <a href="https://www.kayak.fr/hotels/"><p>Kayak</p></a>
                 </div>
                 <AboutUs>
                     <h4>About us</h4>
-                    <p>Trippy came after a long talk with Mister Fucking Paquier.JSON, a great fucking teacher who gave us shitty API’s to work with. </p>
+                    <p>Trippy came after a long talk between three ambitiuous web developers who are passionate about travel and new adventures.</p>
                 </AboutUs>
             </Items>
         </Footer>
